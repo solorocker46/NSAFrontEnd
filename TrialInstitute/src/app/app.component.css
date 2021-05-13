@@ -1,0 +1,41 @@
+body {
+    background-image: url("../assets/bmstree1.jpg");
+}
+@media screen and (min-width: 480px) {
+    .hide-logo-small {
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .hide-logo {
+        display: none;
+    }
+    .hide-logo-small {
+        display: block;
+    }
+}
+.nav-link-color {
+    color: #900f0f;
+}
+.dropdown-menu {
+    min-width: 8rem;
+}
+marquee{
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 1%;
+}
+
+.jumbotron {
+    background-image: url('../assets/bmstree1.jpg');
+    background-size: cover;
+    background-size: 100% 100%;
+    min-height: 20rem;
+    width: 100%;
+}
+
+.text-style {
+    color: #fff;
+    font-weight: 400;
+    font-family: "futura-pt-condensed", Arial, sans-serif;
+}
