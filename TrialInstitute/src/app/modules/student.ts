@@ -1,10 +1,11 @@
 import { Institution } from "./institution";
 import { User } from "./user";
 
-export class Student extends User{
+export class Student extends User
+{
     studentId:number | undefined;
     fullName:string | undefined;
-    birthDate:Date|undefined;
+    birthDate:Date | undefined; 
     gender:string | undefined;
     mobile:string | undefined;
     email:string | undefined;
@@ -22,7 +23,7 @@ export class Student extends User{
     accountNo:string | undefined;
     appStatus:string | undefined;
     approval:string | undefined;
-    institution:Institution | undefined;
+    institution: Institution | undefined;
 
     constructor()
     {

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Student } from 'src/app/modules/student';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-add-student',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddStudentComponent implements OnInit {
 
-  constructor() { }
+  stu:Student=new Student();
 
-  ngOnInit(): void {
+  constructor(private studentService:StudentService, private router:Router)
+  { }
+
+  ngOnInit(): void 
+  {
+
+  }
+
+  addStudent()
+  {
+    this.studentService.addNewStudent(this.stu).subscribe(
+      data=>
+      {
+        alert("Student Added");
+        this.router.navigateByUrl("viewStudent");
+      },
+      error=>
+      {
+        console.log("Error Occurred",error);
+      }
+    )
   }
 
 }

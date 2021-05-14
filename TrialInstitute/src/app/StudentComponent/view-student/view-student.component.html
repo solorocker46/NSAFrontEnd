@@ -1,0 +1,51 @@
+<h2 class="text-center">View Student</h2>
+<br>
+<table class="table">
+    <tr>
+        <th>Student Id</th>
+        <th>Full Name</th>
+        <th>Birth Date</th>
+        <th>Gender</th>
+        <th>Mobile No</th>
+        <th>Email Id</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Aadhar card no</th>
+        <th>Field</th>
+        <th>Course</th>
+        <th>Course Year</th>
+        <th>SSC Score</th>
+        <th>HSC Score</th>
+        <th>Family Income</th>
+        <th>Bank Name</th>
+        <th>Bank Ifsc Code</th>
+        <th>Account No</th>
+        <th>App Status</th>
+        <th>Approval</th>
+        <th>Institution</th>
+    </tr>
+
+    <tr *ngFor="let stu of students">
+        <td>{{stu.studentId}}</td>
+        <td>{{stu.fullName}}</td>
+        <td>{{stu.birthDate}}</td>
+        <td>{{stu.gender}}</td>
+        <td>{{stu.mobile}}</td>
+        <td>{{stu.email}}</td>
+        <td>{{stu.address}}</td>
+        <td>{{stu.city}}</td>
+        <td>{{stu.aadhar}}</td>
+        <td>{{stu.field}}</td>
+        <td>{{stu.course}}</td>
+        <td>{{stu.courseYear}}</td>
+        <td>{{stu.sscScore}}</td>
+        <td>{{stu.hscScore}}</td>
+        <td>{{stu.familyIncome}}</td>
+        <td>{{stu.bankName}}</td>
+        <td>{{stu.bankIfsc}}</td>
+        <td>{{stu.accountNo}}</td>
+        <td>{{stu.appStatus}}</td>
+        <td>{{stu.approval}}</td>
+        <td>{{stu?.institution?.name}}</td>
+    </tr>
+</table>

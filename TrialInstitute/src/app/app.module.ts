@@ -11,6 +11,7 @@ import { AddOfficerComponent } from './OfficerComponent/add-officer/add-officer.
 import { AddStudentComponent } from './StudentComponent/add-student/add-student.component';
 import { AddScholarshipComponent } from './ScholarshipComponent/add-scholarship/add-scholarship.component';
 import { LoginComponent } from './UserComponent/login/login.component'
+import { ViewStudentComponent } from './StudentComponent/view-student/view-student.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './UserComponent/login/login.component'
     AddOfficerComponent,
     AddStudentComponent,
     AddScholarshipComponent,
-    LoginComponent
+    LoginComponent,
+    ViewStudentComponent,
   ],
   imports: [
     BrowserModule,
