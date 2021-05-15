@@ -1,0 +1,27 @@
+<input type="text" [(ngModel)]="searchText" placeholder="search text goes here">
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Institution code</th>
+                <th>Name</th>
+                <th>State</th>
+                <th>Telephone</th>
+                <th>Principal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr *ngFor = "let institute of institutes"> -->
+            <tr *ngFor = "let institute of institutes | filter : searchText">
+                <td>{{institute.code}}</td>
+                <td>{{institute.name}}</td>
+                <td>{{institute.state}}</td>
+                <td>{{institute.telephone}}</td>
+                <td>{{institute.principal}}</td>
+                <a class="btn btn-primary" [routerLink]="['institute', institute.code]">View all details</a>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+<router-outlet></router-outlet>

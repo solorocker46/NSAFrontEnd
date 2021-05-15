@@ -6,23 +6,26 @@ import { AppComponent } from './app.component';
 import { AddInstituteComponent } from './InstitutionComponents/add-institute/add-institute.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-ministry.component';
-import { AddOfficerComponent } from './OfficerComponent/add-officer/add-officer.component';
+import { DashboardComponent } from './InstitutionComponents/dashboard/dashboard.component';
+import { ViewAllComponent } from './InstitutionComponents/view-all/view-all.component';
+import { DetailedInstituteDetailsComponent } from './InstitutionComponents/detailed-institute-details/detailed-institute-details.component';
+import {FilterPipe} from './InstitutionComponents/view-all/filter.pipe';
+import { ViewByIdComponent } from './AngularComponents/view-by-id/view-by-id.component';
 import { AddStudentComponent } from './StudentComponent/add-student/add-student.component';
-import { AddScholarshipComponent } from './ScholarshipComponent/add-scholarship/add-scholarship.component';
-import { LoginComponent } from './UserComponent/login/login.component'
-import { ViewStudentComponent } from './StudentComponent/view-student/view-student.component'
+import { ViewStudentComponent } from './StudentComponent/view-student/view-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddInstituteComponent,
-    AddMinistryComponent,
-    AddOfficerComponent,
-    AddStudentComponent,
-    AddScholarshipComponent,
-    LoginComponent,
+    DashboardComponent,
+    ViewAllComponent,
+    DetailedInstituteDetailsComponent,
+    FilterPipe,
+    ViewByIdComponent,
+    AddInstituteComponent,
     ViewStudentComponent,
+    AddStudentComponent
   ],
   imports: [
     BrowserModule,
