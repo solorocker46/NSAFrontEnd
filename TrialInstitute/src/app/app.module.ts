@@ -13,10 +13,14 @@ import {FilterPipe} from './InstitutionComponents/view-all/filter.pipe';
 import { ViewByIdComponent } from './AngularComponents/view-by-id/view-by-id.component';
 import { AddStudentComponent } from './StudentComponent/add-student/add-student.component';
 import { ViewStudentComponent } from './StudentComponent/view-student/view-student.component';
+import { AddScholarshipComponent } from './ScholarshipComponent/add-scholarship/add-scholarship.component';
+import { ViewScholarshipComponent } from './ScholarshipComponent/view-scholarship/view-scholarship.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddScholarshipComponent,
+    ViewScholarshipComponent,
     AddInstituteComponent,
     DashboardComponent,
     ViewAllComponent,
