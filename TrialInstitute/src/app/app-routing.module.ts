@@ -7,10 +7,14 @@ import { DetailedInstituteDetailsComponent } from './InstitutionComponents/detai
 import { ViewAllComponent } from './InstitutionComponents/view-all/view-all.component';
 import { ViewStudentComponent } from './StudentComponent/view-student/view-student.component';
 import { AddStudentComponent } from './StudentComponent/add-student/add-student.component';
+import { AddScholarshipComponent } from './ScholarshipComponent/add-scholarship.component';
+import { ViewScholarshipComponent } from './view-scholarship/view-scholarship.component';
 
 const routes: Routes = [
   {path:'viewStudent',component:ViewStudentComponent},
   {path:'addStudent',component:AddStudentComponent},
+  {path:'addScholarship', component:AddScholarshipComponent},
+  {path:'viewScholarship', component:ViewScholarshipComponent},
   {path:'institutedashboard/add', component:AddInstituteComponent},
   {path: 'institutedashboard', component:DashboardComponent},
   {path:'institutedashboard/viewall', component:ViewAllComponent},

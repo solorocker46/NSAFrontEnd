@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ScholarshipService } from '../services/scholarship.service';
+import { Scholarship } from '../modules/scholarship';
 
 @Component({
   selector: 'app-add-scholarship',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddScholarshipComponent implements OnInit {
 
-  constructor() { }
+  scholarship:Scholarship = new Scholarship();
+  constructor(private scholarshipService:ScholarshipService,private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  addScholarship()
+  {
+    this.scholarshipService.addScholarship(this.scholarship).subscribe(data =>
+      {
+        alert("Scholarship added");
+        this.router.navigateByUrl("view");
+      },
+      error =>
+      {
+        console.log("Error occurred", error);
+      }
+      );
+  }
+
 }
+
+
