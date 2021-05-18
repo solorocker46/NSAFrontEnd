@@ -10,7 +10,6 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   userId:String = new String();
-
   ngOnInit(): void {
     let link = document.getElementById('jumbotron');
     if(link != null)

@@ -7,20 +7,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
               <div class="navbar-nav">
-                <a class="nav-item nav-link" routerLink="add">Add institute</a>
                 <a class="nav-item nav-link" routerLink="viewall">View All Institutes</a>
-                <a class="nav-item nav-link" routerLink="viewbyid">View By Id</a>
-                <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                <a class="nav-item nav-link" [routerLink]="['viewbyid', userId]">View By Id</a>
+                <a class="nav-item nav-link" [routerLink]="['updateinstitute', userId]">Update</a>
                 
               </div>
             <!-- </div> -->
           </nav>
           
     </div>
-        <div class="align-center">
+        <!-- <div class="align-center"> -->
           <!-- [(ngModel)] = emp.id -> 2 way binding i.e; whatever we're entering in frontend will also get added to backend -->
-          <input type="text" placeholder="enter userid" id="id" name="uid" [(ngModel)]="userId">
-        </div>
-        <a class="btn btn-primary" [routerLink]="['viewbyid', userId]">View By Id</a>
+          <!-- <input type="text" placeholder="enter userid" id="id" name="uid" [(ngModel)]="userId"> -->
+        <!-- </div> -->
+        <!-- <a class="btn btn-primary" [routerLink]="['viewbyid', userId]">View By Id</a> -->
 </div>
 <router-outlet></router-outlet>

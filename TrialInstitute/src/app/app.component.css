@@ -1,6 +1,14 @@
 body {
     background-image: url("../assets/bmstree1.jpg");
 }
+
+.text-display {
+    display: inline-block;
+    margin-top: 1%;
+    color: #900f0f;
+}
+
+
 @media screen and (min-width: 480px) {
     .hide-logo-small {
         display: none;
@@ -27,11 +35,12 @@ marquee{
 }
 
 .jumbotron {
-    background-image: url('../assets/bmstree1.jpg');
-    background-size: cover;
+    /* background-image: url('../assets/bmstree1.jpg'); */
+    /* background-size: cover; */
     background-size: 100% 100%;
     min-height: 20rem;
     width: 100%;
+    display: none;
 }
 
 .text-style {

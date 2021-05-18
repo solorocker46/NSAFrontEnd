@@ -25,8 +25,9 @@ export class AddStudentComponent implements OnInit {
     this.studentService.addNewStudent(this.stu).subscribe(
       data=>
       {
+        console.log(this.stu.birthDate);
         alert("Student Added");
-        this.router.navigateByUrl("viewStudent");
+        //this.router.navigateByUrl("viewStudent");
       },
       error=>
       {

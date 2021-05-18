@@ -1,37 +1,39 @@
 <div class="container">
     <div class="col-md-12">
         <h3 class="text-center">Add Institution</h3>
-        <!-- Equivalent to onsubmit -->
-      <form #frm="ngForm" (ngSubmit)="addInstitute()">
+        <form #frm="ngForm" (ngSubmit)="addInstitute()">
      
-        <div class="align-center">
-        <!-- [(ngModel)] = emp.id -> 2 way binding i.e; whatever we're entering in frontend will also get added to backend -->
-        <input type="text" placeholder="enter userid" id="id" name="uid" [(ngModel)]="institute.userId" #uid="ngModel" class="form-control" required>
-      </div>
+          <div class="align-center">
+            <input type="text" placeholder="Enter user ID" id="id" name="uid" [(ngModel)]="institute.userId" #uid="ngModel" class="form-control" required>
+          </div>
       
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="eid.invalid && eid.touched">ID should not be empty</div> -->
+        <div class="alert alert-danger align-center" *ngIf="uid.invalid && uid.touched">User ID cannot be empty</div>
 
       <div class="align-center">
-        <input type="password" placeholder="enter password" id="pass" name="upass" [(ngModel)]="institute.password" #upass="ngModel" class="form-control" required>
+        <input type="password" placeholder="Enter password" id="pass" name="upass" [(ngModel)]="institute.password" #upass="ngModel" class="form-control" required>
       </div>
      
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="ename.invalid && ename.touched && eid.untouched">Name should not be empty</div> -->
+      <div class="alert alert-danger align-center" *ngIf="upass.invalid && upass.touched">Password cannot be empty</div>
 
       <div class="align-center">
-        <input type="text" placeholder="enter role" id="role" name="urole" [(ngModel)]="institute.role"  #urole="ngModel" class="form-control" required>
+        <input type="number" placeholder="Enter institution code" id="code" name="ucode" [(ngModel)]="institute.code"  #ucode="ngModel" class="form-control" required>
       </div>
 
-      <div class="align-center">
-        <input type="number" placeholder="enter code" id="code" name="ucode" [(ngModel)]="institute.code"  #ucode="ngModel" class="form-control" required>
-      </div>
-
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="esalary.invalid && esalary.touched && eid.untouched">Salary should not be empty</div> -->
+      <div class="alert alert-danger align-center" *ngIf="ucode.invalid && ucode.touched">Institution code cannot be empty</div>
      
-      <div class="align-center">
-        <input type="text" placeholder="enter category" id="category" name="ucategory" [(ngModel)]="institute.category"  #ucategory="ngModel" class="form-control" required>
+      <!-- <div class="align-center">
+        <input type="text" placeholder="Enter institution category (Govt/Private/Autonomous)" id="category" name="ucategory" [(ngModel)]="institute.category"  #ucategory="ngModel" class="form-control" required>
+      </div> -->
+      <div>
+        <label>Choose category</label>
+        <select id="category" name="ucategory"  [(ngModel)]="institute.category" #ucategory="ngModel"  class="form-control" required>
+          <!-- <option disabled selected>Choose institution category<option>  -->
+          <option>Government</option>
+          <option>Private</option>
+          <option>Autonomous</option>
+        </select>
       </div>
-
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="edept.invalid && edept.touched && eid.untouched">Department should not be empty</div> -->
+      <div class="alert alert-danger align-center" *ngIf="ucategory.invalid && ucategory.touched">Category cannot be empty</div>
      
       <div class="align-center">
         <input type="text" placeholder="enter type" id="type" name="utype" [(ngModel)]="institute.type"  #utype="ngModel" class="form-control" required>
@@ -70,7 +72,7 @@
       </div>
 
       <div class="align-center">
-      <input type="submit" value="Add Institution"  class="btn btn-primary">
+      <input type="submit" value="Add Institution" [disabled]="!frm.valid" class="btn btn-primary">
       <!-- [disabled]="!frm.valid" -->
     </div>
     </form>

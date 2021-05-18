@@ -33,4 +33,10 @@ export class InstituteService {
     let url = 'http://localhost:8034/institution/getInstituteByUserId';
     return this.http.get(url+"/"+userId);
   }
+
+  updateInstitution(institution:Institution):Observable<any>
+  {
+    let url = 'http://localhost:8034/institution/editInstituteDetails';
+    return this.http.put(url+"/"+institution.userId,institution,{responseType:'text'});
+  }
 }

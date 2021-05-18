@@ -1,0 +1,95 @@
+
+<h2 class="text-center">View Student</h2>
+<br>
+<table class="table">
+    <tr>
+        <th>Student Id</th>
+        <td>{{student.studentId}}</td>
+    </tr>
+    <tr>
+        <th>Full Name</th>
+        <td>{{student.fullName}}</td>
+    </tr>
+    <tr>
+        <th>Birth Date</th>
+        <td>{{student.birthDate}}</td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td>{{student.gender}}</td>
+    </tr>
+    <tr>
+        <th>Mobile No</th>
+        <td>{{student.mobile}}</td>
+    </tr>
+    <tr>
+        <th>Email Id</th>
+        <td>{{student.email}}</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>{{student.address}}</td>
+    </tr>
+    <tr>
+        <th>City</th>
+        <td>{{student.city}}</td>
+    </tr>
+    <tr>
+        <th>Institution</th>
+        <td>{{student?.institution?.name}}</td>
+    </tr>
+    <tr>
+        <th>Aadhar card no</th>
+        <td>{{student.aadhar}}</td>
+    </tr>
+    <tr>
+        <th>Field</th>
+        <td>{{student.field}}</td>
+    </tr>
+    <tr>
+        <th>Course</th>
+        <td>{{student.course}}</td>
+    </tr>
+
+    <tr>
+        <th>Course Year</th>
+        <td>{{student.courseYear}}</td>
+    </tr>
+    <tr>
+        <th>SSC Score</th>
+        <td>{{student.sscScore}}</td>
+    </tr>
+    <tr>
+        <th>HSC Score</th>
+        <td>{{student.hscScore}}</td>
+    </tr>
+    <tr>
+        <th>Family Income</th>
+        <td>{{student.familyIncome}}</td>
+    </tr>
+    
+    <tr>
+        <th>App Status</th>
+        <td>{{student.appStatus}}</td>
+    </tr>
+    <tr>
+        <th>Approval</th>
+        <td>{{student.approval}}</td>
+    </tr>
+    <tr>
+        <th>Account No</th>
+        <td>{{student.accountNo}}</td>
+    </tr>
+    
+    <tr>
+        <th>Bank Name</th>
+        <td>{{student.bankName}}</td>
+    </tr>
+    <tr>
+        <th>Bank Ifsc Code</th>
+        <td>{{student.bankIfsc}}</td>
+    </tr>
+    <tr>
+        <td><button class = "btn btn-danger" (click) = "refresh(student)"> Check </button></td>
+    </tr>
+</table>

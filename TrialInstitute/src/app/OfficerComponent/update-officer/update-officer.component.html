@@ -1,0 +1,40 @@
+    <h3>Update Officer</h3>
+  <form   #frm="ngForm" (ngSubmit)="updateOfficer(officer1)" >
+ 
+    <div>
+    <input type="text" value="officer1.userId"  id="userId"  name="euserId" [(ngModel)]="officer1.userId"  #euserId="ngModel" class="form-control" disabled>
+  </div>
+  <!-- <div class="alert alert-danger" *ngIf="euserId.invalid && euserId.touched">id should not be empty</div> -->
+  
+  <div>
+    <input type="password" value="officer1.password"  id="password" name="epassword" [(ngModel)]="officer1.password" #epassword="ngModel"  class="form-control" >
+
+  </div>
+  <!-- <div class="alert alert-danger" *ngIf="epassword.invalid && epassword.touched">password should not be empty</div> -->
+
+
+  <div>
+    <input type="text" value="officer1.role" id="role"  name="erole" [(ngModel)]="officer1.role"  #erole="ngModel" class="form-control" disabled>
+  </div>
+  <!-- <div class="alert alert-danger" *ngIf="erole.invalid && erole.touched">role should not be empty</div> -->
+  
+  <div>
+    <input type="text" value="officer1.name" id="name" name="ename" [(ngModel)]="officer1.name" #ename="ngModel" class="form-control" disabled>
+  </div>
+  <!-- <div class="alert alert-danger" *ngIf="ename.invalid && ename.touched">name cannot be empty</div> -->
+ 
+   
+ 
+  <div>
+    <input type="text" value="officer1.state" id="state" name="estate" [(ngModel)]="officer1.state" #estate="ngModel"   class="form-control" >
+  </div>
+  <!-- <div class="alert alert-danger" *ngIf="estate.invalid && estate.touched">state cannot be empty</div> -->
+
+ 
+  <div>
+  <input type="submit" value="update officer"  [disabled]="!frm.valid"  class="btn btn-primary">
+</div>
+</form>
+<router-outlet></router-outlet>
+   
+
