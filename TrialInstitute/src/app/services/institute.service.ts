@@ -12,7 +12,7 @@ export class InstituteService {
 
   addInstitute(institution:Institution):Observable<any>
   {
-    let url = 'http://localhost:8035/institution/addInstitute';
+    let url = 'http://localhost:8034/institution/addInstitute';
     return this.http.post(url, institution, {responseType:'text'});
   }
 

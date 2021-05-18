@@ -9,18 +9,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { DashboardComponent } from './InstitutionComponents/dashboard/dashboard.component';
 import { ViewAllComponent } from './InstitutionComponents/view-all/view-all.component';
 import { DetailedInstituteDetailsComponent } from './InstitutionComponents/detailed-institute-details/detailed-institute-details.component';
+import {FilterPipe} from './InstitutionComponents/view-all/filter.pipe';
 import { ViewByIdComponent } from './AngularComponents/view-by-id/view-by-id.component';
 import { AddStudentComponent } from './StudentComponent/add-student/add-student.component';
 import { ViewStudentComponent } from './StudentComponent/view-student/view-student.component';
-import { AddScholarshipComponent } from './ScholarshipComponent/add-scholarship.component';
-import { ViewScholarshipComponent } from './view-scholarship/view-scholarship.component';
-import { FilterPipe } from './InstitutionComponents/view-all/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddScholarshipComponent,
-    ViewScholarshipComponent,
     AddInstituteComponent,
     DashboardComponent,
     ViewAllComponent,
