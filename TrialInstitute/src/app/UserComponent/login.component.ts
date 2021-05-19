@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         }
         else if(this.user.role == "Student")
         {
-          this.router.navigateByUrl("addStudent");
+          this.router.navigateByUrl(`studentDashboard/${this.user.userId}`);
         }
         else if(this.user.role == "Officer")
         {

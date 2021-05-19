@@ -1,0 +1,21 @@
+<div class="container col-md-6">
+    <!-- <div class="col-md-12"> -->
+        <h3 class="text-center">Apply For Scholarship</h3>   
+        <form #frm="ngForm" (ngSubmit)="applyScholarshipById(scholarshipId)">   
+           <div class="align-center">
+            <h5>Scholarship Id</h5>
+            <input type="number"  placeholder="Enter Scholarship Id" id="id" name="schId" [(ngModel)]="scholarshipId" class="form-control">
+           </div>
+            <br>
+
+            <div class="align-center">
+                <input type="submit" value="Apply For Scholarship" [disabled]="!frm.valid" class="btn btn-primary">
+            </div>
+        </form>
+
+        <a class="nav-link" routerLink="../../../viewScholarship">View All Scholarships</a>
+ 
+    <!-- </div> -->
+</div>
+<router-outlet></router-outlet>
+

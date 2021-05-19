@@ -1,4 +1,5 @@
-<div class="col-md-6 text-center">
+<div class="container col-md-6">
+<!-- <div class="align-center"> -->
     <h2 class="text-center">Add Student</h2>
     <br>
     <form #frm="ngForm" (ngSubmit)="addStudent()">
@@ -10,9 +11,9 @@
             <input type="password" placeholder="Enter Password" id="pass" name="spass" [(ngModel)]="stu.password" class="form-control" required>
         </div>
          
-        <div class="align-center">
+        <!-- <div class="align-center">
             <input type="text" placeholder="Enter Role" id="role" name="srole" [(ngModel)]="stu.role"  class="form-control" required>
-        </div>
+        </div> -->
 
         <div class="align-center">
             <input type="number" placeholder="Enter Student Id" id="studentId" name="sstudentId" [(ngModel)]="stu.studentId" class="form-control">
@@ -26,8 +27,15 @@
             <input type="date" placeholder="Enter Dob (yyyy-mm-dd)" id="dob" name="sdob" [(ngModel)]="stu.birthDate" class="form-control">
         </div>
 
-        <div class="align-center">
+        <!-- <div class="align-center">
             <input type="text" placeholder="Enter Gender" id="gender" name="sgender" [(ngModel)]="stu.gender" class="form-control">
+        </div> -->
+
+        <div class="col-md-6 align-center">Gender
+            <br>
+            <input type="radio" value="Male" id="gender" name="sgender" [(ngModel)]="stu.gender"> Male
+            &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+            <input type="radio" value="Female" id="gender" name="sgender" [(ngModel)]="stu.gender"> Female
         </div>
 
         <div class="align-center">
@@ -50,9 +58,20 @@
             <input type="text" placeholder="Enter Student Aadhar Card No" id="aadhar" name="saadhar" [(ngModel)]="stu.aadhar" class="form-control">
         </div>
 
-        <div class="align-center">
+        <!-- <div class="align-center">
             <input type="text" placeholder="Enter Field (Engineering, Medical, Law,...)" id="field" name="sfield" [(ngModel)]="stu.field" class="form-control">
+        </div> -->
+
+        <div>Select Field
+        <select name="sfield" id="field" [(ngModel)]="stu.field" class="form-control">
+            <option value="">Select Field</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Medical">Medical</option>
+            <option value="Law">Law</option>
+        </select>
         </div>
+
+
 
         <div class="align-center">
             <input type="text" placeholder="Enter Course (BE, BTech, MBA, MTech, MBBS, LLB,...)" id="course" name="scourse" [(ngModel)]="stu.course" class="form-control">
@@ -93,3 +112,4 @@
     </form>
 </div>
 <br><br>
+<!-- </div> -->

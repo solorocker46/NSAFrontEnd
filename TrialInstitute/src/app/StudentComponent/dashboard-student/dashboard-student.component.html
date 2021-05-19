@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!-- <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" routerLink="viewStudentByUserId">My Profile</a>   
+                <a class="nav-item nav-link" routerLink="updateStudent">Update Details</a>
+                <a class="nav-item nav-link" routerLink="applyScholarship">Apply for Scholarship</a> 
+                <a class="nav-item nav-link" routerLink="viewStudent">View All Students</a>
+
+                <!-- <a class="nav-item nav-link" routerLink="addStudent">Add Student</a> -->
+                <!-- <a class="nav-item nav-link" routerLink="viewStudentByStudentId">View By Student Id</a>   -->
+                <a class="nav-item nav-link" [routerLink]="['viewStudentByInstitutionName',institutionName]">View By Institution name</a> 
+                <!-- <a class="nav-item nav-link" routerLink="editInstitutionDetails">Edit institution Details</a> -->
+            </div>
+        </nav>
+    </div>
+    <br>
+    
+    <!-- Find by Student Id
+    <div class="container align-center">
+        <input type="text" placeholder="Enter Student Id" id="id" name="sid" [(ngModel)]="studentId">
+        <a class="btn btn-primary" [routerLink]="['viewStudentByStudentId',studentId]">View By Student Id</a>   
+    </div> -->
+
+    <!-- Find by User Id
+    <div class="container align-center">
+        <input type="text" placeholder="Enter User Id" id="userid" name="suserid" [(ngModel)]="userId">
+        <a class="btn btn-primary" [routerLink]="['viewStudentByUserId',userId]">View By User Id</a>   
+    </div> -->
+
+    <!--Find by Institution Name-->
+    <div class="container align-center">
+        <input type="text" placeholder="Enter Institution Name" id="name" name="iname" [(ngModel)]="institutionName">
+        <a class="btn btn-primary" [routerLink]="['viewStudentByInstitutionName',institutionName]">View By Institution Name</a>   
+    </div>
+
+    <!-- Update By User Id
+    <div class="container align-center">
+        <input type="text" placeholder="Enter User Id" id="uid" name="suid" [(ngModel)]="userId">
+        <a class="btn btn-primary" [routerLink]="['updateStudent',userId]">Update Student</a>   
+    </div> -->
+
+
+</div>
+<router-outlet></router-outlet>

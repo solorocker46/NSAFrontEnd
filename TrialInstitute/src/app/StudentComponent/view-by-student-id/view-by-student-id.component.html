@@ -1,0 +1,64 @@
+<div class="container">
+    <table class="table table-responsive">
+        <tr>
+            <th>Student Id</th>
+            <td>{{student.studentId}}</td>
+        </tr>
+        <tr>
+            <th>Student Name</th>
+            <td>{{student.fullName}}</td>
+        </tr>
+        <tr>
+            <th>Date Of Birth</th>
+            <td>{{student.birthDate}}</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>{{student.gender}}</td>
+        </tr>
+        <!-- <tr>
+            <th>Phone no</th>
+            <td>{{student.mobile}}</td>
+        </tr> -->
+        <tr>
+            <th>Email Id</th>
+            <td>{{student.email}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{student.address}}, {{student.city}}</td>
+        </tr>
+        <!-- <tr>
+            <th>Aadhar No</th>
+            <td>{{student.aadhar}}</td>
+        </tr> -->
+        <tr>
+            <th>Course</th>
+            <td>{{student.courseYear}} Year, {{student.course}} ({{student.field}})</td>
+        </tr>
+        <tr>
+            <th>SSC Score</th>
+            <td>{{student.sscScore}}</td>
+        </tr>
+        <tr>
+            <th>HSC Score</th>
+            <td>{{student.hscScore}}</td>
+        </tr>
+        <!-- <tr>
+            <th>Family Income</th>
+            <td>{{student.familyIncome}}</td>
+        </tr> -->
+        <tr>
+            <th>App Status</th>
+            <td>{{student.appStatus}}</td>
+        </tr>
+        <tr>
+            <th>Approval</th>
+            <td>{{student.approval}}</td>
+        </tr>
+        <tr>
+            <th>Institution Name</th>
+            <td>{{student.institution?.name}}</td>
+        </tr>
+    </table>
+</div>

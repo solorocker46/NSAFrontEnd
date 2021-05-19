@@ -8,8 +8,8 @@ import { StudentService } from 'src/app/services/student.service';
   templateUrl: './add-student.component.html',
   styleUrls: ['./add-student.component.css']
 })
-export class AddStudentComponent implements OnInit {
-
+export class AddStudentComponent implements OnInit 
+{
   stu:Student=new Student();
 
   constructor(private studentService:StudentService, private router:Router)
@@ -25,9 +25,10 @@ export class AddStudentComponent implements OnInit {
     this.studentService.addNewStudent(this.stu).subscribe(
       data=>
       {
-        console.log(this.stu.birthDate);
+        console.log("date "+this.stu.birthDate);
         alert("Student Added");
-        //this.router.navigateByUrl("viewStudent");
+        this.router.navigateByUrl(`student/login/addStudent/editInstitutionDetails/${this.stu.studentId}`);
+        //this.router.navigateByUrl(`studentDashboard/viewStudentByUserId/${this.stu.userId}`);
       },
       error=>
       {
