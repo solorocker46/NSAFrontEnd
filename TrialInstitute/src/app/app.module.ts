@@ -39,6 +39,11 @@ import { UpdateStatusComponent } from './OfficerComponent/update-status/update-s
 
 import { AddScholarshipComponent } from './ScholarshipComponent/add-scholarship/add-scholarship.component';
 import { ViewScholarshipComponent } from './ScholarshipComponent/view-scholarship/view-scholarship.component';
+import { ViewMinistryComponent } from './MinistryComponent/view-ministry/view-ministry.component';
+import { GrantScholarshipComponent } from './MinistryComponent/grant-scholarship/grant-scholarship.component';
+import { MinistryDashboardComponent } from './MinistryComponent/ministry-dashboard/ministry-dashboard.component';
+import { CheckStudentComponent } from './MinistryComponent/check-student/check-student.component';
+import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-ministry.component';
 
 
 @NgModule({
@@ -71,6 +76,12 @@ import { ViewScholarshipComponent } from './ScholarshipComponent/view-scholarshi
     OfficerDashboardComponent,
     UpdateOfficerComponent,
     UpdateStatusComponent,
+
+    ViewMinistryComponent,
+    GrantScholarshipComponent,
+    MinistryDashboardComponent,
+    CheckStudentComponent,
+    AddMinistryComponent,
 
     AddScholarshipComponent,
     ViewScholarshipComponent

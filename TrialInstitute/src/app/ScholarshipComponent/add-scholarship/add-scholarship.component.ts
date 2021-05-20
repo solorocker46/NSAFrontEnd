@@ -21,7 +21,7 @@ export class AddScholarshipComponent implements OnInit {
     this.scholarshipService.addScholarship(this.scholarship).subscribe(data =>
       {
         alert("Scholarship added");
-        this.router.navigateByUrl("view");
+        this.router.navigateByUrl("ministry-dashboard/:userId/viewScholarship");
       },
       error =>
       {

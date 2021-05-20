@@ -31,6 +31,11 @@ export class LoginComponent implements OnInit {
       this.user.role = "Officer";
       this.path = "addOfficer";
     }
+
+    else if(this.router.url=='/ministry/login'){
+      this.user.role = "Ministry";
+      this.path = "add-ministry";
+    }
     console.log(this.router.url);
   }
 
@@ -52,6 +57,10 @@ export class LoginComponent implements OnInit {
         else if(this.user.role == "Officer")
         {
           this.router.navigateByUrl(`officerdashboard/${this.user.userId}`);
+        }
+        else if(this.user.role == "Ministry")
+        {
+          this.router.navigateByUrl(`ministry-dashboard/${this.user.userId}`);
         }
       },
       error=>

@@ -1,0 +1,18 @@
+<p>view-ministry works!</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>UserId</th>
+        <th>Portfolio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ministry of ministries">
+        <td>{{ministry.userId}}</td>
+        <td>{{ministry.portfolio}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <br>

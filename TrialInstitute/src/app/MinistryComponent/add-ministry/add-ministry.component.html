@@ -1,1 +1,38 @@
 <p>add-ministry works!</p>
+
+<div class="col-md-6 text-center">
+    <h2 class="text-center">Add Ministry</h2>
+    <br>
+    <!--Two way bnding-->
+    <form #frm="ngForm" (ngSubmit)="createNewMinistry()">
+         <label> USER ID</label>
+        <div class="align-center">
+        <!-- [(ngModel)] = emp.id -> 2 way binding i.e; whatever we're entering in frontend will also get added to backend -->
+        <input type="text" placeholder="enter userid" id="id" name="uid" [(ngModel)]="ministry.userId" #uid="ngModel" class="form-control" required>
+      </div>   
+      <div class="alert alert-danger align-center" *ngIf="uid.invalid && uid.touched">ID should not be empty</div>
+      <label> PASSWORD </label>
+      <div class="align-center">
+        <input type="password" placeholder="enter password" id="password" name="upassword" [(ngModel)]="ministry.password" #upassword="ngModel" class="form-control" required>
+      </div>
+      <!--<label> ROLE </label>
+      <div class="align-center">
+        <input type="text" placeholder="enter role" id="role" name="urole" [(ngModel)]="ministry.role"   class="form-control" >
+      </div>-->
+     
+      <label> PORTFOLIO </label>
+      <div class="align-center">
+        <input type="text" placeholder="enter portfolio" id="portfolio" name="mportfolio" [(ngModel)]="ministry.portfolio" #mportfolio="ngModel"  class="form-control" required >
+      </div>
+
+      <div class="alert alert-danger align-center" *ngIf="mportfolio.invalid && mportfolio.touched">portfolio should not be empty</div>
+
+     
+      <div class="align-center">
+      <input type="submit" value="Add Ministry" [disabled]="!frm.valid" class="btn btn-primary">
+    </div>
+    </form>
+</div>
+
+
+

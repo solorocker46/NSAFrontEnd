@@ -30,6 +30,11 @@ import { ViewStudentNewComponent } from './OfficerComponent/view-student-new/vie
 
 import { ViewScholarshipComponent } from './ScholarshipComponent/view-scholarship/view-scholarship.component';
 import { AddScholarshipComponent } from './ScholarshipComponent/add-scholarship/add-scholarship.component';
+import { MinistryDashboardComponent } from './MinistryComponent/ministry-dashboard/ministry-dashboard.component';
+import { CheckStudentComponent } from './MinistryComponent/check-student/check-student.component';
+import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-ministry.component';
+import { GrantScholarshipComponent } from './MinistryComponent/grant-scholarship/grant-scholarship.component';
+import { ViewMinistryComponent } from './MinistryComponent/view-ministry/view-ministry.component';
 
 const routes: Routes = [
   // {path:'institutedashboard/:userId/add', component:AddInstituteComponent},
@@ -61,6 +66,15 @@ const routes: Routes = [
   {path:'officerdashboard/:userId/updateOfficer',component:UpdateOfficerComponent},
   {path:'officerdashboard/:userId/updateStatus',component:UpdateStatusComponent},
   {path: 'officerdashboard/:userId/viewStudentNew/:student', component:ViewStudentNewComponent},
+
+  {path:"ministry-dashboard/:userId",component:MinistryDashboardComponent},
+  {path:"ministry-dashboard/:userId/check-student/:student",component:CheckStudentComponent},
+  {path:'ministry-dashboard/:userId/addScholarship', component:AddScholarshipComponent},
+  {path:'ministry-dashboard/:userId/viewScholarship', component:ViewScholarshipComponent},
+  {path:'ministry/login', component:LoginComponent},
+  {path:'ministry/login/add-ministry', component:AddMinistryComponent},
+  {path:'ministry-dashboard/:userId/grant-scholarship',component:GrantScholarshipComponent},
+  {path:'ministry-dashboard/:userId/view-ministry',component:ViewMinistryComponent},
   
   {path:'addScholarship', component:AddScholarshipComponent},
   {path:'viewScholarship', component:ViewScholarshipComponent},
