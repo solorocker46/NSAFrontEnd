@@ -11,6 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class UpdateStudentComponent implements OnInit {
 
+  dateString:string = '';
   student:Student=new Student();
   sub:Subscription=new Subscription();
 
@@ -56,6 +57,14 @@ export class UpdateStudentComponent implements OnInit {
     this.studentService.updateStudent(this.student).subscribe(data =>
       {
         this.student=stu;
+        if(stu.birthDate != null)
+        {
+          this.dateString = stu.birthDate.toString();
+        }
+        if(stu.userId !== undefined)
+          this.editDate(stu.userId);
+        console.log("date "+this.dateString);
+        //console.log(stu.birthDate);
         alert("Updated Successfully");
         this.router.navigateByUrl(`studentDashboard/${this.student.userId}/viewStudentByUserId`);
       },
@@ -65,6 +74,30 @@ export class UpdateStudentComponent implements OnInit {
       }
       );
   }
+
+  editDate(userId:string)
+  {
+    this.studentService.updateDate(userId, this.dateString).subscribe(
+      data=>
+      {
+        console.log("date "+this.dateString);
+        console.log("Date edited!");
+        // if(this.stu.birthDate != null)
+        // {
+        //   this.dateString = this.stu.birthDate.toString();
+        // }
+        // console.log("date "+this.dateString);
+        // alert("Student Added");
+        //this.router.navigateByUrl(`student/login/addStudent/editInstitutionDetails/${this.stu.studentId}`);
+        //this.router.navigateByUrl(`studentDashboard/viewStudentByUserId/${this.stu.userId}`);
+      },
+      err=>
+      {
+        console.log("Error Occurred",err.error);
+      }
+    );
+  }
+
   }
 
   // editStudent(student:Student)

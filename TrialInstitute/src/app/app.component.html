@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid h-100">
   <nav class="navbar navbar-expand-lg navbar-light bg-light row">
           <a class="hide-logo" href="#">
               <img src="../assets/cap.png" width="100" height="80" class="d-inline-block align-top hide-logo" alt="">
@@ -24,13 +24,13 @@
                   <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="institution/login" (click) = "onSelect()">INSTITUTION </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="student/login" (click) = "onSelect()">STUDENT</a>
+                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="student/login">STUDENT</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="officer/login" (click) = "onSelect()">OFFICER</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="ministry/login" (click) = "onSelect()">MINISTRY</a>
+                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" href="ministry/login">MINISTRY</a>
                 </li>
               </ul>
             </div>
@@ -48,10 +48,10 @@
         </h2>
       </div>
   </div>
-  <a class="nav-link" routerLink="viewScholarship">View Scholarship</a>
-  <a class="nav-link" routerLink="addScholarship">Add Scholarship</a>
-  <!-- <a class="nav-link" routerLink="viewStudent">View Students</a>
-  <a class="nav-link" routerLink="addStudent">Add Students</a> -->
+   <!-- <a class="nav-link" routerLink="viewScholarship">View Scholarship</a>
+  <a class="nav-link" routerLink="addScholarship">Add Scholarship</a>  -->
+  <!-- <a class="nav-link" routerLink="viewStudent">View Students</a> -->
+  <!-- <a class="nav-link" routerLink="addStudent">Add Students</a> --> 
   <!-- <a class="nav-link" routerLink="add">Add institute</a> -->
   <router-outlet></router-outlet>
 </div>

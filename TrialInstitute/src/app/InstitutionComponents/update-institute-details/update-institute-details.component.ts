@@ -67,9 +67,10 @@ export class UpdateInstituteDetailsComponent implements OnInit {
           this.router.navigateByUrl(`institutedashboard/${institution.userId}/viewbyid`);
           //this.editemployee=false;
       },
-      error=>
+      err=>
       {
-        console.log("error errored ",error);       
+        alert(err.error);
+        console.log("error errored ",err.error);       
       }
     )
   }

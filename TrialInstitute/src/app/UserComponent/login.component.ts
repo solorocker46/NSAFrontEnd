@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       this.user.role = "Officer";
       this.path = "addOfficer";
     }
-
     else if(this.router.url=='/ministry/login'){
       this.user.role = "Ministry";
       this.path = "add-ministry";

@@ -33,6 +33,12 @@
         <input type="text" placeholder="Enter Student Aadhar Card No" id="aadhar" name="saadhar" [(ngModel)]="student.aadhar" class="form-control">
     </div>
     <br>
+
+    <div class="align-center">
+        <h5>Date</h5>
+        <input type="date" placeholder="Enter Student bdate" id="bdate" name="sbdate" [(ngModel)]="student.birthDate" class="form-control">
+    </div>
+
     <div class="align-center">
         <input type="submit" value="Update Student"  [disabled]="!frm.valid"  class="btn btn-danger">
     </div>

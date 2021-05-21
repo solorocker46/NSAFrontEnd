@@ -4,7 +4,7 @@ import { User } from "./user";
 export class Student extends User{
     studentId:number | undefined;
     fullName:string | undefined;
-    birthDate:Date|undefined;
+    birthDate:string|undefined;
     gender:string | undefined;
     mobile:string | undefined;
     email:string | undefined;

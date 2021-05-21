@@ -58,4 +58,16 @@ export class StudentService {
     let url='http://localhost:8034/student/updateScholarshipDetails';
     return this.http.put(url+"/"+studentId,scholarshipId,{responseType:'text'});
   }
+
+  updateDate(userId:string, dateString:string):Observable<any>
+  {
+    let url='http://localhost:8034/student/editDate';
+    return this.http.put(url+"/"+userId,dateString,{responseType:'text'});
+  }
+
+  getDate(userId:string):Observable<any>
+  {
+    let url = 'http://localhost:8034/student/getDate';
+    return this.http.get(url+"/"+userId);
+  }
 }

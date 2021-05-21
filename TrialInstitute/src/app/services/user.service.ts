@@ -16,4 +16,10 @@ export class UserService {
     let url='http://localhost:8034/User/login';
     return this.http.put(url,user,{responseType:'text'});
   }
+
+  logout(userId:string):Observable<any>
+  {
+    let url='http://localhost:8034/User/logout';
+    return this.http.put(url,userId,{responseType:'text'});
+  }
 }
