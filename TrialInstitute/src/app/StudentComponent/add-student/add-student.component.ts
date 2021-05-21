@@ -11,7 +11,12 @@ import { StudentService } from 'src/app/services/student.service';
 export class AddStudentComponent implements OnInit 
 {
   stu:Student=new Student();
-
+  mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$";  
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  aadharPattern = "^[2-9]{1}[0-9]{11}$";   //first digit of aadhar no cannot be 0 or 1. Total length should be 12 digits
+  bankIfscPattern = "^[A-Z]{4}0[A-Z0-9]{6}$";  //first 4 digits should be alphabets, 5th character is 0, then alphabet or number. (total 11 digits)
+  //passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{4, 20}$"  
+  
   constructor(private studentService:StudentService, private router:Router)
   { }
 

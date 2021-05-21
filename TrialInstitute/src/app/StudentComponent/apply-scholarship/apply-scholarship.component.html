@@ -1,11 +1,14 @@
 <div class="container col-md-6">
     <!-- <div class="col-md-12"> -->
         <h3 class="text-center">Apply For Scholarship</h3>   
-        <form #frm="ngForm" (ngSubmit)="applyScholarshipById(scholarshipId)">   
+        <form #frm="ngForm" (ngSubmit)="applyScholarshipById(scholarshipid)">   
            <div class="align-center">
             <h5>Scholarship Id</h5>
-            <input type="number"  placeholder="Enter Scholarship Id" id="id" name="schId" [(ngModel)]="scholarshipId" class="form-control">
+            <!-- <input type="number"  placeholder="Enter Scholarship Id" id="id" name="schId" [(ngModel)]="scholarshipId" class="form-control"> -->
            </div>
+           <select class="form-control" [(ngModel)]="scholarshipid" name="schId">
+               <option *ngFor="let sch of scholarships" ngValue={{sch.scholarshipId}}>{{sch.scholarshipId}} - {{sch.scholarshipName}}</option>
+           </select>
             <br>
 
             <div class="align-center">

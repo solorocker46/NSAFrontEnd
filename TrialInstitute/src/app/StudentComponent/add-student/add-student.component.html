@@ -2,109 +2,167 @@
 <!-- <div class="align-center"> -->
     <h2 class="text-center">Add Student</h2>
     <br>
-    <form #frm="ngForm" (ngSubmit)="addStudent()">
+    <form #frm="ngForm" (ngSubmit)="addStudent()"> 
+
         <div class="align-center">
-           <input type="text" placeholder="Enter Userid" id="id" name="sid" [(ngModel)]="stu.userId" class="form-control" required>
+            <input type="text" placeholder="Enter Userid" id="id" name="sid" [(ngModel)]="stu.userId" #sid="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="sid.invalid && sid.touched">UserId is required.</div>
         </div>
-          
+ 
+
         <div class="align-center">
-            <input type="password" placeholder="Enter Password" id="pass" name="spass" [(ngModel)]="stu.password" class="form-control" required>
+            <input type="password" placeholder="Enter Password" id="pass" name="spass" [(ngModel)]="stu.password" #spass="ngModel" class="form-control" required minlength="4" maxlength="8">
+            <!-- <div class="alert alert-danger align-center"  *ngIf="spass.invalid && spass.touched">Password cannot be empty</div> -->
+            <div class="alert alert-danger align-center" *ngIf="spass.invalid && (spass.dirty || spass.touched)">
+                <div *ngIf="spass.errors?.required">Password is required.</div>
+                <div *ngIf="spass.errors?.minlength">Password must be at least 4 characters long.</div>
+                <div *ngIf="spass.errors?.maxlength && spass.pristine">Password cannot be more than 8 characters long.</div>
+            </div>
         </div>
-         
         <!-- <div class="align-center">
             <input type="text" placeholder="Enter Role" id="role" name="srole" [(ngModel)]="stu.role"  class="form-control" required>
         </div> -->
 
-        <div class="align-center">
-            <input type="number" placeholder="Enter Student Id" id="studentId" name="sstudentId" [(ngModel)]="stu.studentId" class="form-control">
-        </div>
 
         <div class="align-center">
-            <input type="text" placeholder="Enter Student Name" id="name" name="sname" [(ngModel)]="stu.fullName" class="form-control">
+            <input type="number" placeholder="Enter Student Id" id="studentId" name="sstudentId" [(ngModel)]="stu.studentId" #sstudentId="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="sstudentId.invalid && sstudentId.touched">Student Id cannot be empty</div>
         </div>
 
+
         <div class="align-center">
-            <input type="date" placeholder="Enter Dob (yyyy-mm-dd)" id="dob" name="sdob" [(ngModel)]="stu.birthDate" class="form-control">
+            <input type="text" placeholder="Enter Student Name" id="name" name="sname" [(ngModel)]="stu.fullName" #sname="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="sname.invalid && sname.touched">Student Name cannot be empty</div>
         </div>
+
+
+        <div class="align-center">
+            <input type="date" placeholder="Enter Dob (yyyy-mm-dd)" id="dob" name="sdob" [(ngModel)]="stu.birthDate" #sdob="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="sdob.invalid && sdob.touched">Student BirthDate cannot be empty</div>
+        </div>
+
 
         <!-- <div class="align-center">
             <input type="text" placeholder="Enter Gender" id="gender" name="sgender" [(ngModel)]="stu.gender" class="form-control">
         </div> -->
-
-        <div class="col-md-6 align-center">Gender
+        <div class="align-center">Gender
             <br>
-            <input type="radio" value="Male" id="gender" name="sgender" [(ngModel)]="stu.gender"> Male
+            <input type="radio" value="Male" id="gender" name="sgender" [(ngModel)]="stu.gender" #sgender="ngModel" required> Male
             &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-            <input type="radio" value="Female" id="gender" name="sgender" [(ngModel)]="stu.gender"> Female
+            <input type="radio" value="Female" id="gender" name="sgender" [(ngModel)]="stu.gender" #sgender="ngModel" required> Female
+            <br>
+            <div class="alert alert-danger align-center"  *ngIf="sgender.invalid && sgender.touched">Select Gender</div>
         </div>
 
-        <div class="align-center">
-            <input type="text" placeholder="Enter Student Mobile No" id="mobile" name="smobile" [(ngModel)]="stu.mobile" class="form-control">
-        </div>
 
         <div class="align-center">
-            <input type="text" placeholder="Enter Student Email Id" id="email" name="semail" [(ngModel)]="stu.email" class="form-control">
+            <input type="text" placeholder="Enter Student Mobile No" id="mobile" name="smobile" [(ngModel)]="stu.mobile" #smobile="ngModel" class="form-control" required [pattern]="mobNumberPattern">
+            <div class="alert alert-danger align-center"  *ngIf="smobile.invalid && (smobile.dirty || smobile.touched)">
+                <div *ngIf="smobile.errors?.required">Student Mobile no cannot be empty</div>
+                <div *ngIf="smobile.errors?.pattern">Mobile number not valid.</div>
+            </div>
         </div>
+     
 
         <div class="align-center">
-            <input type="text" placeholder="Enter Address" id="address" name="saddress" [(ngModel)]="stu.address" class="form-control">
+            <input type="email" placeholder="Enter Student Email Id" id="email" name="semail" [(ngModel)]="stu.email" #semail="ngModel" class="form-control" required [pattern]="emailPattern">
+            <div class="alert alert-danger align-center"  *ngIf="semail.invalid && (semail.dirty || semail.touched)">
+                <div *ngIf="semail.errors?.required">Student Email Id cannot be empty</div>
+                <div *ngIf="semail.errors?.pattern">Email Id not valid</div>
+            </div>
         </div>
 
-        <div class="align-center">
-            <input type="text" placeholder="Enter City" id="city" name="scity" [(ngModel)]="stu.city" class="form-control">
-        </div>
 
         <div class="align-center">
-            <input type="text" placeholder="Enter Student Aadhar Card No" id="aadhar" name="saadhar" [(ngModel)]="stu.aadhar" class="form-control">
+            <input type="text" placeholder="Enter Address" id="address" name="saddress" [(ngModel)]="stu.address" #saddress="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="saddress.invalid && saddress.touched">Address cannot be empty</div>
         </div>
+
+
+        <div class="align-center">
+            <input type="text" placeholder="Enter City" id="city" name="scity" [(ngModel)]="stu.city" #scity="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="scity.invalid && scity.touched">City cannot be empty</div>
+        </div>
+
+
+        <div class="align-center">
+            <input type="text" placeholder="Enter Student Aadhar Card No" id="aadhar" name="saadhar" [(ngModel)]="stu.aadhar" #saadhar="ngModel" class="form-control" [pattern]="aadharPattern">
+            <div class="alert alert-danger align-center"  *ngIf="saadhar.invalid && (saadhar.dirty || saadhar.touched)">
+                <div *ngIf="saadhar.errors?.required">Student Aadhar No cannot be empty.</div>
+                <div *ngIf="saadhar.errors?.pattern">Enter 12 digits valid Aadhar No.</div>
+            </div>    
+        </div>
+
 
         <!-- <div class="align-center">
             <input type="text" placeholder="Enter Field (Engineering, Medical, Law,...)" id="field" name="sfield" [(ngModel)]="stu.field" class="form-control">
         </div> -->
-
         <div>Select Field
-        <select name="sfield" id="field" [(ngModel)]="stu.field" class="form-control">
+        <select name="sfield" id="field" [(ngModel)]="stu.field" class="form-control" #sfield="ngModel" required>
             <option value="">Select Field</option>
             <option value="Engineering">Engineering</option>
             <option value="Medical">Medical</option>
             <option value="Law">Law</option>
         </select>
+        <div class="alert alert-danger align-center"  *ngIf="sfield.invalid && sfield.touched">Field cannot be empty</div>
         </div>
 
 
-
         <div class="align-center">
-            <input type="text" placeholder="Enter Course (BE, BTech, MBA, MTech, MBBS, LLB,...)" id="course" name="scourse" [(ngModel)]="stu.course" class="form-control">
+            <input type="text" placeholder="Enter Course (BE, BTech, MBA, MTech, MBBS, LLB,...)" id="course" name="scourse" [(ngModel)]="stu.course" #scourse="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="scourse.invalid && scourse.touched">Course cannot be empty</div>
         </div>
 
-        <div class="align-center">
-            <input type="number" placeholder="Enter Course Year" id="courseYear" name="scourseYear" [(ngModel)]="stu.courseYear" class="form-control">
-        </div>
 
         <div class="align-center">
-            <input type="number" placeholder="Enter SSC Score" id="ssc" name="sssc" [(ngModel)]="stu.sscScore" class="form-control">
+            <input type="number" placeholder="Enter Course Year" id="courseYear" name="scourseYear" [(ngModel)]="stu.courseYear" #scourseYear="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="scourseYear.invalid && scourseYear.touched">Course Year cannot be empty</div>
         </div>
 
-        <div class="align-center">
-            <input type="number" placeholder="Enter HSC Score" id="hsc" name="shsc" [(ngModel)]="stu.hscScore" class="form-control">
-        </div>
 
         <div class="align-center">
-            <input type="number" placeholder="Enter Family Income" id="income" name="sincome" [(ngModel)]="stu.familyIncome" class="form-control">
+            <input type="number" placeholder="Enter SSC Score" id="ssc" name="sssc" [(ngModel)]="stu.sscScore" #sssc="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="sssc.invalid && sssc.touched">SSC Score cannot be empty</div>
+            <!-- <div class="alert alert-danger align-center"  *ngIf="sssc.invalid && (sssc.dirty || sssc.touched)">
+                <div *ngIf="sssc.errors?.required">SSC Score cannot be empty.</div>
+                <div *ngIf="sssc.errors?.min">min can be 0.0.</div>
+            </div>  -->
         </div>
 
-        <div class="align-center">
-            <input type="text" placeholder="Enter Bank Name" id="bankName" name="sbankName" [(ngModel)]="stu.bankName" class="form-control">
-        </div>
 
         <div class="align-center">
-            <input type="text" placeholder="Enter Bank Ifsc Code" id="bankIfsc" name="sbankIfsc" [(ngModel)]="stu.bankIfsc" class="form-control">
+            <input type="number" placeholder="Enter HSC Score" id="hsc" name="shsc" [(ngModel)]="stu.hscScore" #shsc="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="shsc.invalid && shsc.touched">HSC Score cannot be empty</div>
         </div>
 
+
         <div class="align-center">
-            <input type="text" placeholder="Enter Account No" id="accountNo" name="saccountNo" [(ngModel)]="stu.accountNo" class="form-control">
-        </div>  
+            <input type="number" placeholder="Enter Family Income" id="income" name="sincome" [(ngModel)]="stu.familyIncome" #sincome="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="sincome.invalid && sincome.touched">Family Income cannot be empty</div>
+        </div>
+
+
+        <div class="align-center">
+            <input type="text" placeholder="Enter Bank Name" id="bankName" name="sbankName" [(ngModel)]="stu.bankName" #sbankName="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center"  *ngIf="sbankName.invalid && sbankName.touched">Bank Name cannot be empty</div>
+        </div>
+
+
+        <div class="align-center">
+            <input type="text" placeholder="Enter Bank Ifsc Code" id="bankIfsc" name="sbankIfsc" [(ngModel)]="stu.bankIfsc" #sbankIfsc="ngModel" class="form-control" required [pattern]="bankIfscPattern">
+            <div class="alert alert-danger align-center"  *ngIf="sbankIfsc.invalid && (sbankIfsc.dirty || sbankIfsc.touched)">
+                <div *ngIf="sbankIfsc.errors?.required">Bank Ifsc Code cannot be empty.</div>
+                <div *ngIf="sbankIfsc.errors?.pattern">Ifsc Code not valid.</div>
+            </div>    
+        </div>
+
+
+        <div class="align-center">
+            <input type="text" placeholder="Enter Account No" id="accountNo" name="saccountNo" [(ngModel)]="stu.accountNo" #saccountNo="ngModel" class="form-control" required> 
+            <div class="alert alert-danger align-center"  *ngIf="saccountNo.invalid && saccountNo.touched">Account No cannot be empty</div>
+        </div>
         <br>
+
 
         <div class="align-center">
             <input type="submit" value="Add Student" [disabled]="!frm.valid" class="btn btn-primary">

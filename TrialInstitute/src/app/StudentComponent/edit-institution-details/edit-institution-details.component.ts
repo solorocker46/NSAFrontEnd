@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Institution } from 'src/app/modules/institution';
 import { Student } from 'src/app/modules/student';
+import { InstituteService } from 'src/app/services/institute.service';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -14,8 +16,10 @@ export class EditInstitutionDetailsComponent implements OnInit
   student:Student=new Student();
   sub:Subscription=new Subscription();
   institutionName!: String;
+  institutes:Institution[] |undefined;
+  //instNames:string[] | undefined;
 
-  constructor(private studentService:StudentService, private route:ActivatedRoute,private router:Router) { }
+  constructor(private studentService:StudentService, private route:ActivatedRoute,private router:Router, private instituteService:InstituteService) { }
 
   ngOnInit(): void 
   {
@@ -49,6 +53,19 @@ export class EditInstitutionDetailsComponent implements OnInit
         }
       }
       );
+      
+      //to show dropdown menu of institution names
+      this.instituteService.viewAllInstitutes().subscribe(data =>
+        {
+          this.institutes=data;
+          console.log(this.institutes);
+        },
+        error =>
+        {
+          alert("Error");
+          console.log("Error Occurred "+error);
+        }
+        );
   }
 
   updateInstitutionDetails(insName:String)
