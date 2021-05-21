@@ -9,8 +9,8 @@ import { StudentService } from 'src/app/services/student.service';
   templateUrl: './grant-approval.component.html',
   styleUrls: ['./grant-approval.component.css']
 })
-export class GrantApprovalComponent implements OnInit {
 
+export class GrantApprovalComponent implements OnInit {
   students:Student[]=[];
   student:Student=new Student();
   constructor(private officerService:OfficerService,private studentService:StudentService,private router:Router) { }
@@ -26,50 +26,25 @@ export class GrantApprovalComponent implements OnInit {
       );
   }
 
-  grantApproval(student:Student){
-    this.officerService.grantApproval(student).subscribe(data=>
-      {
-        this.students=this.students.filter(s=>s!==student);
-        
-        //this.check(student)
-        //alert("check Student");
-        
-        //this.router.navigate(["ministry-dashboard/view-student",JSON.stringify(student)]);
-      },
-      error=>{
-        console.log("Error occurred ",error);
-      }
-      )
-  }
-
   check(student:Student){
-    //this.student=student;
-    //this.grantScholarship(this.student);
     alert("check student");
     this.router.navigate(["officerdashboard/:userId/viewStudentNew",JSON.stringify(student)]);
-
   }
 
 
-
-
-  /*changeColor(student:Student){
-    if(student.appStatus=="Approved"){
-      return{'background-color':'green'};
+  getColor(appStatus:string,approval:string):string{
+    
+    if(approval=="Pending"){
+      return 'yellow';
     }
-    else if(student.appStatus=="Rejected"){
-      return{'background-color':'red'};
+    
+    else if(approval=="Approved"){
+      return 'lime';
     }
-
-    else if(student.appStatus=="pending" && student.approval=="pending"){
-      return{'background-color':'yellow'};
-
-    }
-
+    
     else{
-      return{'background-color':'white'};
+      return 'tomato';
     }
-  }*/
 
-
+  }
 }

@@ -1,30 +1,37 @@
-
-<div class="row">
-    <div class="col-md-12">
-<table class="table table-condensed table-hover table-responsive ">
+<!-- <div class="row"> -->
+  <!-- <div class="col-md-12"> -->
+    <div class="table-responsive" style="background-color: #fff;">
+   <table class="table table-condensed table-hover table-responsive table-bordered ">
     <tr>
         <th>Student Id</th>
         <th>Full Name</th>
         <th>Mobile No</th>
         <th>Email Id</th>
-        <th>Aadhar card no</th>
+        <!-- <th>Aadhar card no</th> -->
         <th>Field</th>
         <th>Course</th>
-    </tr>
+        <th>Approval Status</th>
+        
+        </tr>
 
-    <tr *ngFor="let stu of students" >
-        <td>{{stu.studentId}}</td>
-        <td>{{stu.fullName}}</td>
-        <td>{{stu.mobile}}</td>
-        <td>{{stu.email}}</td>
-        <td>{{stu.aadhar}}</td>
-        <td>{{stu.field}}</td>
-        <td>{{stu.course}}</td>
-        <!--<td><button class = "btn btn-danger" (click) = "grantScholarship(stu)" > Grant </button></td>-->
-        <td><button class = "btn btn-danger" (click) = "check(stu)"> Check </button></td>
-    </tr>
+    <ng-container *ngFor="let stu of students">
+        <ng-container *ngIf = "stu.appStatus !== undefined && stu.approval!== undefined">
+        <tr [ngStyle]="{'background':getColor(stu.appStatus,stu.approval)}">
+         <td>{{stu.studentId}}</td>
+            <td>{{stu.fullName}}</td>
+            <td>{{stu.mobile}}</td>
+            <td>{{stu.email}}</td>
+            <!-- <td>{{stu.aadhar}}</td> -->
+            <td>{{stu.field}}</td>
+            <td>{{stu.course}}</td>
+            <td>{{stu.approval}}</td>
+            <td><button class = "btn btn-danger" (click) = "check(stu)">Check</button></td>
+            </tr>
+        
+        </ng-container>
+        </ng-container>
 </table>
 </div>
-</div>
+<!-- </div> -->
 
 

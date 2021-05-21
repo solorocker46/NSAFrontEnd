@@ -9,6 +9,7 @@ import { StudentService } from 'src/app/services/student.service';
   templateUrl: './view-student-new.component.html',
   styleUrls: ['./view-student-new.component.css']
 })
+
 export class ViewStudentNewComponent implements OnInit {
 
   student:Student;
@@ -18,10 +19,7 @@ export class ViewStudentNewComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    /*this.sub = this.route.params.subscribe(params=>
-      {
-        this.s= params['student'];
-      })*/
+    
   }
 
   getAllStudents(){
@@ -32,32 +30,25 @@ export class ViewStudentNewComponent implements OnInit {
       error=>{
         console.log("Error occurred ",error);
       }
-      );
+    );
   }
   
   grantApproval(student:Student){
     this.officerService.grantApproval(student).subscribe(data=>
       {
-        //this.refresh();
-        //return student;
+        this.students=this.students.filter(s=>s!==student);
       }, 
-      error=>{
-        console.log("Error occurred ",error);
+      err=>{
+        alert("error "+ err.error);
+        console.log("Error occurred ",err.error);
       }
-      )
+    )
   }
   refresh(std:Student){
     this.grantApproval(std);
-    //console.log(std);
     this.getAllStudents();
-    alert("student is checked");
-    /*for(var i=0;i<this.students.length;i++){
-      if(this.students[i].studentId==std.studentId){
-        this.router.navigate(["ministry-dashboard/view-student",JSON.stringify(this.students[i])])
-      }
-    }*/
-    //alert("student is checked");
-    this.router.navigate(["officerdashboard/grantApproval"]);
+    alert("student is checked");   
+    this.router.navigate(["officerdashboard/:userId/grantApproval"]);
 
   }
 }
