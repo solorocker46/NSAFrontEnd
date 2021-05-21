@@ -14,6 +14,7 @@ export class CheckStudentComponent implements OnInit {
 
   student:Student;
   students:Student[]=[];
+  userid:string = this.route.snapshot.url[1].path;
 
   constructor(private studentService:StudentService,private ministryService:MinistryService,private route:ActivatedRoute, private router:Router) { 
     this.student=JSON.parse(route.snapshot.params["student"]);
@@ -49,7 +50,7 @@ export class CheckStudentComponent implements OnInit {
     this.grantScholarship(std);
     //this.getAllStudents();
     alert("student is checked");
-    this.router.navigate(["ministry-dashboard/:userId/grant-scholarship"]);
+    this.router.navigate([`ministry-dashboard/${this.userid}/grant-scholarship`]);
   }
 
 
