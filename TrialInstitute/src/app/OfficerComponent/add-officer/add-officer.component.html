@@ -1,38 +1,48 @@
+<button class = "btn btn-danger" (click) = "dashboard()">Dashboard</button>
+<br><br>
+<div class="container">
+  <div class="col-md-12">
+    <div class="card card-body mx-auto">
+      <h4 class="text-center mt-2">New Officer Registeration</h4>
+      <br>
+        <form #frm="ngForm" (ngSubmit)="createOfficer()">
+     
+          <div class="align-center">
+            <label>Enter User ID</label>
+            <input type="text" placeholder="Enter UserId" id="userId" name="euserId" [(ngModel)]="officer.userId" #euserId="ngModel" class="form-control" required>
+          </div>   
+          <div class="alert alert-danger align-center" *ngIf="euserId.invalid && euserId.touched">UserId is Required</div>
+  
+          <div class="align-center">
+            <label>Enter Password</label>
+            <input type="password" placeholder="Enter Password" id="password" name="epassword" [(ngModel)]="officer.password" #epassword="ngModel" class="form-control" required minlength="4" maxlength="8">
+            <div class="alert alert-danger align-center" *ngIf="epassword.invalid && (epassword.dirty || epassword.touched)">
+              <div *ngIf="epassword.errors?.required">Password is Required.</div>
+              <div *ngIf="epassword.errors?.minlength">Password must be at least 4 characters long.</div>
+              <div *ngIf="epassword.errors?.maxlength && epassword.pristine">Password cannot be more than 8 characters long.</div>
+            </div>
+          </div>
+  
+          <div class="align-center">
+            <label>Enter Officer Name</label>
+            <input type="text" placeholder="Enter Name" id="name" name="ename" [(ngModel)]=" officer.name" #ename="ngModel" class="form-control" required>
+          </div>
+          <div class="alert alert-danger align-center"  *ngIf="ename.invalid && ename.touched">Name is Required</div>
+          
+          <div class="align-center">
+            <label>Enter Officer State</label>
+            <select name="state"  id="state"  [(ngModel)]="officer.state" class="form-control" #estate="ngModel" required>
+              <option *ngFor ="let state1 of stateList">{{state1.name}} </option>
+            </select>
+            <div class="alert alert-danger align-center"  *ngIf="estate.invalid && estate.touched">State is Required</div>
+          </div>
+ 
+          <div class="align-center text-center">
+            <input type="submit" value="Add officer" [disabled]="!frm.valid" class="btn btn-primary btn-shape mt-3 px-3 py-2">
+          </div>
 
-<div class="col-md-6 text-center">
-    <h3 class="text-center">Add Officer</h3>
-    <br>
-    <!--Two way bnding-->
-    <form #frm="ngForm" (ngSubmit)="createOfficer()">
-     
-      <div class="align-center">
-        <input type="text" placeholder="enter id" id="userId" name="euserId" [(ngModel)]="officer.userId" #euserId="ngModel" class="form-control" required>
-      </div>   
-      <div class="alert alert-danger align-center" *ngIf="euserId.invalid && euserId.touched">ID should not be empty</div>
-  
-      <div class="align-center">
-        <input type="password" placeholder="enter password" id="password" name="epassword" [(ngModel)]=" officer.password" #epassword="ngModel" class="form-control" required>
-      </div>
-      <div class="alert alert-danger align-center"  *ngIf="epassword.invalid && epassword.touched">Password should not be empty</div>
-     
-      <!-- <div class="align-center">
-        <input type="text" placeholder="enter role" id="role" name="erole" [(ngModel)]=" officer.role" #erole="ngModel" class="form-control" required>
-      </div>
-      <div class="alert alert-danger align-center"  *ngIf="erole.invalid && erole.touched">Role should not be empty</div> -->
-     
-  
-      <div class="align-center">
-        <input type="text" placeholder="enter name" id="name" name="ename" [(ngModel)]=" officer.name" #ename="ngModel" class="form-control" required>
-      </div>
-      <div class="alert alert-danger align-center"  *ngIf="ename.invalid && ename.touched">Name should not be empty</div>
-     
-     
-      <div class="align-center">
-        <input type="text" placeholder="enter state" id="state" name="state" [(ngModel)]=" officer.state"   class="form-control" required>
-      </div>
-     
-      <div class="align-center">
-      <input type="submit" value="Add officer" [disabled]="!frm.valid" class="btn btn-primary">
+        </form>
     </div>
-    </form>
   </div>
+</div>
+ 

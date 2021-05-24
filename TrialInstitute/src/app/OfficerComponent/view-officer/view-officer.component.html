@@ -1,29 +1,36 @@
-
-
-<h3>
-    Officer Details
-  </h3>
-  <input [(ngModel)] ="searchText" placeholder ="search by name/state">
-  <table class="table">
-    <tr>
-      <th>UserId</th>
-      <th>Password</th>
-      <th>Role</th>
-      <th>Name</th>
-      <th>State</th>
-      
-    </tr>
-    <tr *ngFor="let officer of officers|filter:searchText">
-      <td>{{ officer.userId }}</td>
-      <td>{{ officer.password }}</td>
-      <td>{{ officer.role }}</td>
-      <td>{{ officer.name }}</td>
-      <td>{{ officer.state }}</td>
-
-    </tr>
-  </table>
-
+<button class = "btn btn-danger" (click) = "dashboard()">Dashboard</button>
+<h2 class="text-center">Officer Details</h2>
+  <div class="container">
+    <div class="col-md-12">
+      <div class ="nav navbar navbar-right">  
+        <input  [(ngModel)] ="searchText" placeholder ="search by name/state" >
+      </div>
   
+      <br>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>UserId</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Name</th>
+            <th>State</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let officer of officers|filter:searchText">
+            <td>{{ officer.userId }}</td>
+            <td>{{ officer.password }}</td>
+            <td>{{ officer.role }}</td>
+            <td>{{ officer.name }}</td>
+            <td>{{ officer.state }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 
   
   

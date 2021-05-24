@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from 'src/app/modules/student';
 import { OfficerService } from 'src/app/services/officer.service';
 import { StudentService } from 'src/app/services/student.service';
@@ -13,7 +13,9 @@ import { StudentService } from 'src/app/services/student.service';
 export class GrantApprovalComponent implements OnInit {
   students:Student[]=[];
   student:Student=new Student();
-  constructor(private officerService:OfficerService,private studentService:StudentService,private router:Router) { }
+  // userid:string = this.route.snapshot.url[1].path;
+
+  constructor(private officerService:OfficerService,private studentService:StudentService,private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.studentService.getStudent().subscribe(data=>
@@ -23,16 +25,16 @@ export class GrantApprovalComponent implements OnInit {
       error=>{
         console.log("Error occurred ",error);
       }
-      );
+    );
   }
 
   check(student:Student){
-    alert("check student");
+   
     this.router.navigate(["officerdashboard/:userId/viewStudentNew",JSON.stringify(student)]);
   }
 
 
-  getColor(appStatus:string,approval:string):string{
+  getColor(approval:string):string{
     
     if(approval=="Pending"){
       return 'yellow';
@@ -47,4 +49,9 @@ export class GrantApprovalComponent implements OnInit {
     }
 
   }
+
+  // dashboard(){
+    
+  //    this.router.navigateByUrl(`officerdashboard/:userId`);
+  //  }
 }

@@ -7,22 +7,22 @@ import { Officer } from 'src/app/modules/officer';
 import { InstituteService } from 'src/app/services/institute.service';
 import { OfficerService } from 'src/app/services/officer.service';
 
-
-
 @Component({
   selector: 'app-update-status',
   templateUrl: './update-status.component.html',
   styleUrls: ['./update-status.component.css']
 })
+
 export class UpdateStatusComponent implements OnInit {
 
-  constructor(private officerService:OfficerService,private instituteService:InstituteService,private router:Router, private route:ActivatedRoute) { }
+  constructor(private officerService:OfficerService,private instituteService:InstituteService,private router:Router, private route:ActivatedRoute) {
+  }
 
- 
   sub:Subscription = new Subscription();
   institutes:Institution[] = [];
   userId:string = this.route.snapshot.url[1].path;
   state:string = '';
+
   ngOnInit(): void {
 
     let link = document.getElementById('jumbotron');
@@ -35,7 +35,7 @@ export class UpdateStatusComponent implements OnInit {
     {
       link1.style.display = "none";
     }
-    // console.log(this.route.snapshot.url[1].path); 
+     
     this.sub = this.route.params.subscribe(params =>
       {
         const code = params['userId'];
@@ -43,12 +43,12 @@ export class UpdateStatusComponent implements OnInit {
           this.officerService.getOfficerByUserId(this.userId).subscribe((data:Officer) =>
           {
             if(data) {
-              // console.log(data);
+              
               if(data.state !== undefined)
               {
                 this.state = data.state;
               }
-              // console.log(this.state);
+              
             }
             else
             {
@@ -58,7 +58,8 @@ export class UpdateStatusComponent implements OnInit {
           );
         }
       }
-      );
+    );
+
     this.instituteService.viewAllInstitutes().subscribe(data =>
       {
         this.institutes = data;
@@ -69,7 +70,7 @@ export class UpdateStatusComponent implements OnInit {
         console.log("Errors = "+error);
       } 
       );
-      //console.log(this.institutes);
+      
   }
 
   updateStatus(code:number, status:string, userId:string)
@@ -77,6 +78,7 @@ export class UpdateStatusComponent implements OnInit {
       this.officerService.updateStatus(code, status).subscribe(
       data=>
       {
+         
           alert(`${status} institution`);
           this.router.navigateByUrl(`officerdashboard/${userId}/updateStatus/institute/${code}`);
  
@@ -90,5 +92,24 @@ export class UpdateStatusComponent implements OnInit {
       );
     }
 
+    getColorNew(status:string):string{
     
+      if(status=="Pending"){
+        return 'yellow';
+      }
+      
+      else if(status=="Approved"){
+        return 'lime';
+      }
+      
+      else{
+        return 'tomato';
+      }
+  
+    }
+
+    dashboard(){
+      
+       this.router.navigateByUrl(`officerdashboard/${this.userId}`);
+     }
 }

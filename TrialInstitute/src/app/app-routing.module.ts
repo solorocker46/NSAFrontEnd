@@ -60,6 +60,9 @@ const routes: Routes = [
   {path:'officerdashboard/:userId/updateOfficer',component:UpdateOfficerComponent},
   {path:'officerdashboard/:userId/updateStatus',component:UpdateStatusComponent},
   {path: 'officerdashboard/:userId/viewStudentNew/:student', component:ViewStudentNewComponent},
+  {path:'officerdashboard/:userId/updateStatus/institute/:code',component:DetailedInstituteDetailsComponent},
+  {path: 'officerdashboard/:userId/addOfficer', component:AddOfficerComponent},
+  {path:'officerdashboard/:userId/logout', component:LogoutComponent},
 
   {path:"ministry-dashboard/:userId",component:MinistryDashboardComponent},
   {path:"ministry-dashboard/:userId/check-student/:student",component:CheckStudentComponent},

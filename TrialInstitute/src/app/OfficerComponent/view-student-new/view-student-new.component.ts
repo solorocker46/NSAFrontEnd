@@ -14,6 +14,8 @@ export class ViewStudentNewComponent implements OnInit {
 
   student:Student;
   students:Student[]=[];
+  //userid:string = this.route.snapshot.url[1].path;
+
   constructor(private studentService:StudentService,private officerService:OfficerService,private route:ActivatedRoute, private router:Router) {
     this.student=JSON.parse(route.snapshot.params["student"]);
    }
@@ -44,11 +46,18 @@ export class ViewStudentNewComponent implements OnInit {
       }
     )
   }
+
   refresh(std:Student){
     this.grantApproval(std);
     this.getAllStudents();
-    alert("student is checked");   
-    this.router.navigate(["officerdashboard/:userId/grantApproval"]);
+    alert('Checked Student');   
+    this.router.navigate(["officerdashboard/:userid/grantApproval"]);
 
   }
+
+  // dashboard(){
+  //   
+  //   this.router.navigateByUrl(`officerdashboard/:userid/grantApproval`);
+  // }
+  
 }

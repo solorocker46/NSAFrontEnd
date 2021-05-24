@@ -1,40 +1,55 @@
-    <h3>Update Officer</h3>
-  <form   #frm="ngForm" (ngSubmit)="updateOfficer(officer1)" >
+<button class = "btn btn-danger" (click) = "dashboard()">Dashboard</button>
+<div class="container">
+  <div class="col-md-12">
+    <div class="card card-body mx-auto">
+      <h3 class="text-center">Update Officer</h3>
+        <br>
+        <form #frm="ngForm" (ngSubmit)="updateOfficer(officer1)" >
  
-    <div>
-    <input type="text" value="officer1.userId"  id="userId"  name="euserId" [(ngModel)]="officer1.userId"  #euserId="ngModel" class="form-control" disabled>
-  </div>
-  <!-- <div class="alert alert-danger" *ngIf="euserId.invalid && euserId.touched">id should not be empty</div> -->
-  
-  <div>
-    <input type="password" value="officer1.password"  id="password" name="epassword" [(ngModel)]="officer1.password" #epassword="ngModel"  class="form-control" >
+          <div class="align-center">
+            <label>User ID</label>
+            <input type="text" value="officer1.userId"  id="userId"  name="euserId" [(ngModel)]="officer1.userId"  #euserId="ngModel" class="form-control" disabled>
+          </div>  
 
-  </div>
-  <!-- <div class="alert alert-danger" *ngIf="epassword.invalid && epassword.touched">password should not be empty</div> -->
+          <div class="align-center">
+            <label>Update Password</label>
+            <input type="password" placeholder="Enter Password" id="password" name="epassword" [(ngModel)]="officer1.password" #epassword="ngModel" class="form-control" required minlength="4" maxlength="8">
+              <div class="alert alert-danger align-center" *ngIf="epassword.invalid && (epassword.dirty || epassword.touched)">
+                <div *ngIf="epassword.errors?.required">Password is required.</div>
+                <div *ngIf="epassword.errors?.minlength">Password must be at least 4 characters long.</div>
+                <div *ngIf="epassword.errors?.maxlength && epassword.pristine">Password cannot be more than 8 characters long.</div>
+              </div>
+          </div>
 
-
-  <div>
-    <input type="text" value="officer1.role" id="role"  name="erole" [(ngModel)]="officer1.role"  #erole="ngModel" class="form-control" disabled>
-  </div>
-  <!-- <div class="alert alert-danger" *ngIf="erole.invalid && erole.touched">role should not be empty</div> -->
-  
-  <div>
-    <input type="text" value="officer1.name" id="name" name="ename" [(ngModel)]="officer1.name" #ename="ngModel" class="form-control" disabled>
-  </div>
-  <!-- <div class="alert alert-danger" *ngIf="ename.invalid && ename.touched">name cannot be empty</div> -->
- 
    
- 
-  <div>
-    <input type="text" value="officer1.state" id="state" name="estate" [(ngModel)]="officer1.state" #estate="ngModel"   class="form-control" >
-  </div>
-  <!-- <div class="alert alert-danger" *ngIf="estate.invalid && estate.touched">state cannot be empty</div> -->
+          <div class="align-center">
+            <label>Role</label>
+            <input type="text" value="officer1.role" id="role"  name="erole" [(ngModel)]="officer1.role"  #erole="ngModel" class="form-control" disabled>
+          </div>
+  
+          <div class="align-center">
+            <label>Officer Name</label>
+            <input type="text" value="officer1.name" id="name" name="ename" [(ngModel)]="officer1.name" #ename="ngModel" class="form-control" disabled>
+          </div>
+  
+          <div class="align-center">
+            <label>Update Officer State</label>
+            <select name="state" id="state"  [(ngModel)]="officer1.state" class="form-control" #estate="ngModel" required>
+              <option *ngFor ="let state2 of stateList">{{state2.name}} </option>
+            </select>
 
- 
-  <div>
-  <input type="submit" value="update officer"  [disabled]="!frm.valid"  class="btn btn-primary">
-</div>
-</form>
+            <div class="alert alert-danger align-center"  *ngIf="estate.invalid && estate.touched">State is Required</div>
+          </div> 
+        
+          <br>
+          <div class="align-center text-center">
+            <input type="submit" value="update officer"  [disabled]="!frm.valid"  class="btn btn-primary btn-shape mt-3 px-3 py-2">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 <router-outlet></router-outlet>
    
 

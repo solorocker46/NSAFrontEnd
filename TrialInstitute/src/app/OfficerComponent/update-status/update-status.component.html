@@ -1,37 +1,38 @@
+<button class = "btn btn-danger" (click) = "dashboard()">Dashboard</button>
 <div class="table-responsive" style="background-color: #fff;">
     <table class="table table-condensed table-hover table-responsive table-bordered ">
-        <thead>
+        <thead class="thead-light">
             
             <tr>
                 <th>Institution code</th>
                 <th>Name</th>
-                <th>State</th>
-                <!-- <th>Telephone</th> -->
+                <th>State</th>               
                 <th>Principal</th>
                 <th>Application status</th>
-                
+                <th></th>
+                <th></th>
+                <th></th>               
             </tr>
         
         </thead>
-        <tbody>
-            <!-- <tr *ngFor = "let institute of institutes"> -->
+        <tbody>            
             <ng-container *ngFor = "let institute of institutes">
-                <tr *ngIf = "institute.code !== undefined && institute.userId !== undefined">
+                <ng-container  *ngIf = "institute.code !== undefined && institute.userId !== undefined  && institute.status !== undefined">
+                    <tr [ngStyle]="{'background':getColorNew(institute.status)}">
                     <td>{{institute.code}}</td>
                     <td>{{institute.name}}</td>
-                    <td>{{institute.state}}</td>
-                    <!-- <td>{{institute.telephone}}</td> -->
+                    <td>{{institute.state}}</td>                    
                     <td>{{institute.principal}}</td>
-                    <td>{{institute.status}}</td>
-                    <!-- <td>{{institute.approval}}</td> -->
+                    <td>{{institute.status}}</td>                    
                     <td><a class="btn btn-primary" [routerLink]="['institute', institute.code]">View all details</a></td>
                     <td><button class="btn btn-success" (click)="updateStatus(institute.code, 'Approved', institute.userId)">Approve</button></td>
                     <td><button class="btn btn-danger" (click)="updateStatus(institute.code, 'Rejected', institute.userId)">Reject</button></td>
-                </tr>
+               
+                    </tr>
+                </ng-container>
             </ng-container>
-       
-            
-        </tbody>
+        </tbody>                
     </table>
 </div>
+
 <router-outlet></router-outlet>
