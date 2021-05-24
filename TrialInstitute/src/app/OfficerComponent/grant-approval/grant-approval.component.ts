@@ -52,6 +52,6 @@ export class GrantApprovalComponent implements OnInit {
 
   // dashboard(){
     
-  //    this.router.navigateByUrl(`officerdashboard/:userId`);
+  //    this.router.navigateByUrl(`officerdashboard/${this.userid}`);
   //  }
 }

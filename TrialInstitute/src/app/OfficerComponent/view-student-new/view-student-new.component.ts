@@ -14,7 +14,7 @@ export class ViewStudentNewComponent implements OnInit {
 
   student:Student;
   students:Student[]=[];
-  //userid:string = this.route.snapshot.url[1].path;
+  userId:string = this.route.snapshot.url[1].path;
 
   constructor(private studentService:StudentService,private officerService:OfficerService,private route:ActivatedRoute, private router:Router) {
     this.student=JSON.parse(route.snapshot.params["student"]);
@@ -38,7 +38,7 @@ export class ViewStudentNewComponent implements OnInit {
   grantApproval(student:Student){
     this.officerService.grantApproval(student).subscribe(data=>
       {
-        this.students=this.students.filter(s=>s!==student);
+        this.students=this.students.filter(s=>s!==student );
       }, 
       err=>{
         alert("error "+ err.error);
@@ -47,6 +47,7 @@ export class ViewStudentNewComponent implements OnInit {
     )
   }
 
+  
   refresh(std:Student){
     this.grantApproval(std);
     this.getAllStudents();
