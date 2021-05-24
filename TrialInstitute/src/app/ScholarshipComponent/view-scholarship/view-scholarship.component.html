@@ -1,23 +1,38 @@
-<p>view-scholarship works!</p>
-<h1>
-    Scholarship Info
-  </h1>
-  <table class="table">
-    <tr>
-      <th>scholarshipId</th>
-      <th>scholarshipName</th>
-      <th>sscScoreCriteria</th>
-      <th>hscScoreCriteria</th>
-      <th>familyIncomeCriteria</th>
-
-    </tr>
-    <tr *ngFor="let schol of scholarship">
-      <td>{{ schol.scholarshipId }}</td>
-      <td>{{ schol.scholarshipName }}</td>
-      <td>{{ schol.sscScoreCriteria}}</td>
-      <td>{{ schol.hscScoreCriteria}}</td>
-      <td>{{ schol.familyIncomeCriteria}}</td>
-
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-right">
+        <div class="input-icons">
+        <i class="fa fa-arrow-circle-o-left fa-lg mt-2 ml-3 pt-1" aria-hidden="true" style="color: #fff;"></i>
+        <button class="btn btn-primary px-5" (click) = "dashboard()">Back</button>
+    </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th>Scholarship ID</th>
+            <th>Scholarship Name</th>
+            <th>SSC Score Criteria</th>
+            <th>HSC Score Criteria</th>
+            <th>Family Income Criteria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schol of scholarship">
+            <td>{{ schol.scholarshipId }}</td>
+            <td>{{ schol.scholarshipName }}</td>
+            <td>{{ schol.sscScoreCriteria}}</td>
+            <td>{{ schol.hscScoreCriteria}}</td>
+            <td>{{ schol.familyIncomeCriteria}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
   
-    </tr>
-  </table>
+  </div>
+</div>
+  

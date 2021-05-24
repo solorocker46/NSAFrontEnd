@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     //console.log(this.userId);
-    let link = document.getElementById('jumbotron');
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -29,6 +29,16 @@ export class DashboardComponent implements OnInit {
     {
       link1.style.display = "none";
     }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
+    }
     this.sub = this.route.params.subscribe(params =>
       {
         const code = params['userId'];
@@ -36,12 +46,10 @@ export class DashboardComponent implements OnInit {
           this.instituteService.getByUserId(this.userId).subscribe((data:any) =>
           {
             if(data) {
-              // console.log(data);
               if(data.name !== undefined)
               {
                 this.name = data.name;
               }
-              // console.log(this.state);
             }
             else
             {

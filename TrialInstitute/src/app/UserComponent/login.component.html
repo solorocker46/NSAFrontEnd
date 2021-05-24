@@ -1,27 +1,42 @@
-<div class="col-md-10 text-center">
-    <h2 class="text-center">Login</h2>
-    <br>
-    <form #frm="ngForm" (ngSubmit)="login()">
-        <div class="align-center">
-           <input type="text" placeholder="Enter Userid" id="id" name="uid" [(ngModel)]="user.userId" class="form-control" required>
-        </div>
-          
-        <div class="align-center">
-            <input type="password" placeholder="Enter Password" id="pass" name="upass" [(ngModel)]="user.password" class="form-control" required>
-        </div>
-
-        <!-- <div class="align-center">
-            <input type="text" placeholder="Enter Role" id="role" name="urole" [(ngModel)]="user.role" class="form-control" required>
-        </div> -->
+<br><br>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <br><br>
+        <div class="card card-body mx-auto px-5">
+            <h5 class="text-center">LOGIN</h5>
         <br>
-
-        <div class="align-center">
-            <input type="submit" value="login" [disabled]="!frm.valid" class="btn btn-primary">
+        <form #frm="ngForm" (ngSubmit)="login()" class="text-center mx-auto form-size">
+            <div class="align-center">
+               <input type="text" placeholder="Enter Userid" id="id" name="uid" [(ngModel)]="user.userId" class="form-control" required>
+            </div>
+            
+            <div class="align-center">
+                <input type="password" placeholder="Enter Password" id="pass" name="upass" [(ngModel)]="user.password" class="form-control" required>
+            </div>
+            
+            <div class="align-center">
+                <input type="submit" value="Login" [disabled]="!frm.valid" class="btn btn-primary px-5 btn-shape">
+            </div>
+            <div class="align-center">
+                <a class="text-style" [routerLink] = "[path]">Not registered? Create an account</a>
+            </div>
+            <div class="align-center">
+                <a class="text-style" [routerLink] = "[passPath]">Forgot password?</a>
+            </div>
+        </form>
         </div>
-    </form>
+    </div>
 </div>
-<!-- <div *ngFor = "let path of paths"> -->
-    <a class="nav-link" [routerLink] = "[path]">New user registration</a>
-<!-- </div> -->
+<br>
+<div>
+    <div class="col-md-12">
+        <p id="msg" class="text-center fail-message"></p>
+    </div>
+</div>
+
+
+
+    <!-- <a class="nav-link" [routerLink] = "[path]"></a> -->
+
 
 <br><br>

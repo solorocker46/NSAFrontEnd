@@ -1,51 +1,41 @@
-<h2 class="text-center">View Student By Institution Name</h2>
-<br>
-<table class="table">
-    <tr>
-        <th>Student Id</th>
-        <th>Full Name</th>
-        <th>Birth Date</th>
-        <th>Gender</th>
-        <th>Mobile No</th>
-        <th>Email Id</th>
-        <!-- <th>Address</th> -->
-        <th>City</th>
-        <!-- <th>Aadhar card no</th> -->
-        <th>Field</th>
-        <th>Course</th>
-        <th>Course Year</th>
-        <th>SSC Score</th>
-        <th>HSC Score</th>
-        <!-- <th>Family Income</th> -->
-        <!-- <th>Bank Name</th>
-        <th>Bank Ifsc Code</th>
-        <th>Account No</th> -->
-        <th>App Status</th>
-        <th>Approval</th>
-        <th>Institution</th>
-    </tr>
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <div class="input-icons">
+            <i class="fa fa-arrow-circle-o-left fa-lg mt-2 ml-3 pt-1" aria-hidden="true" style="color: #fff;"></i>
+            <button class="btn btn-primary px-5" (click) = "dashboard()">Back</button>
+        </div>
+        </div>
+      </div>
+    
+    <div class="row" *ngIf = "!students.length">
+        <div class="col-md-12 text-center">
+            <br><br>
+            <h4 style="color: #900f0f;">No students have registered yet!</h4>
+        </div>
+    </div>
+    
+    <br>
+    <div class="table-responsive">
+    <table class="table table-striped text-center"  *ngIf = "students.length">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Full Name</th>
+                <th>Mobile Number</th>
+                <th>Email Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stu of students">
+                <td>{{stu.studentId}}</td>
+                <td>{{stu.fullName}}</td>
+                <td>{{stu.mobile}}</td>
+                <td>{{stu.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
 
-    <tr *ngFor="let stu of students">
-        <td>{{stu.studentId}}</td>
-        <td>{{stu.fullName}}</td>
-        <td>{{stu.birthDate}}</td>
-        <td>{{stu.gender}}</td>
-        <td>{{stu.mobile}}</td>
-        <td>{{stu.email}}</td>
-        <!-- <td>{{stu.address}}</td> -->
-        <td>{{stu.city}}</td>
-        <!-- <td>{{stu.aadhar}}</td> -->
-        <td>{{stu.field}}</td>
-        <td>{{stu.course}}</td>
-        <td>{{stu.courseYear}}</td>
-        <td>{{stu.sscScore}}</td>
-        <td>{{stu.hscScore}}</td>
-        <!-- <td>{{stu.familyIncome}}</td> -->
-        <!-- <td>{{stu.bankName}}</td>
-        <td>{{stu.bankIfsc}}</td>
-        <td>{{stu.accountNo}}</td> -->
-        <td>{{stu.appStatus}}</td>
-        <td>{{stu.approval}}</td>
-        <td>{{stu?.institution?.name}}</td>
-    </tr>
-</table>

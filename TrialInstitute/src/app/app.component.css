@@ -1,6 +1,9 @@
-body {
-    background-image: url("../assets/bmstree1.jpg");
+.navbar {
+    box-shadow: 0px 8px 23px -8px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 8px 23px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 8px 23px -8px rgba(0,0,0,0.75);
 }
+
 
 .text-display {
     display: inline-block;
@@ -21,6 +24,9 @@ body {
     .hide-logo-small {
         display: block;
     }
+    .reduce-size {
+        max-width:inherit;
+    }
 }
 .nav-link-color {
     color: #900f0f;
@@ -33,6 +39,13 @@ marquee{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 1%;
 }
+
+.about-content {
+    color: #900f0f;
+    padding: 2%;
+}
+
+
 
 .jumbotron {
     /* background-image: url('../assets/bmstree1.jpg'); */
@@ -48,3 +61,38 @@ marquee{
     font-weight: 400;
     font-family: "futura-pt-condensed", Arial, sans-serif;
 }
+
+.card-color {
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF99AC 43%, #FF6A88 100%);
+    box-shadow: -1px -3px 14px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px -3px 14px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -3px 14px -4px rgba(0,0,0,0.75);
+}
+
+.footer {
+    color: #fff;
+    font-size: 14px;
+}
+
+.document-card {
+    color: #00254d;
+}
+
+.card-quote-color {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(90deg, #FBAB7E 0%, #F7CE68 100%);
+    font-family: cursive, sans-serif, Calibri;
+    box-shadow: -1px -3px 14px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px -3px 14px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -3px 14px -4px rgba(0,0,0,0.75);
+}
+
+.link-effect:hover {
+    background-color: #ecd3d7;
+}
+
+.card {
+    border: none;
+}
+

@@ -34,7 +34,7 @@ export class LogoutComponent implements OnInit {
       {
         alert("logout successful");
         //this.link.display = "block";
-        this.router.navigateByUrl("#");
+        location.replace("#");
       },
       error=>
       {

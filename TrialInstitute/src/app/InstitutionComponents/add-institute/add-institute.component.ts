@@ -12,10 +12,11 @@ import { Router } from '@angular/router';
 export class AddInstituteComponent implements OnInit {
 
   institute:Institution = new Institution();
+  mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$";  
   constructor(private instituteService:InstituteService, private router:Router) { }
 
   ngOnInit(): void {
-    let link = document.getElementById('jumbotron');
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -24,6 +25,16 @@ export class AddInstituteComponent implements OnInit {
     if(link1 != null)
     {
       link1.style.display = "none";
+    }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
     }
   }
 

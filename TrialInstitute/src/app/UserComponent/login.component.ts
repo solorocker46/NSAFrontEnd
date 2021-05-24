@@ -14,12 +14,14 @@ export class LoginComponent implements OnInit {
   user:User = new User();
 
   path:String = new String();
+  passPath:String = new String();
 
   ngOnInit(): void {
     if(this.router.url == "/institution/login")
     {
       this.user.role = "Institution";
       this.path = "addInstitute";
+      this.passPath = `changePassword`;
     }
     else if(this.router.url == '/student/login')
     {
@@ -62,9 +64,13 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl(`ministry-dashboard/${this.user.userId}`);
         }
       },
-      error=>
+      err=>
       {
-        console.log("Error Occurred",error);
+        //alert(err.error);
+        let id = document.getElementById("msg");
+        if(id !== null)
+          id.innerHTML = err.error;
+        console.log("Error Occurred",err.error);
       }
     )
 

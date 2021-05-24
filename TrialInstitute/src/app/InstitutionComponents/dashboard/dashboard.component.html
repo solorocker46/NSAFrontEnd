@@ -7,24 +7,58 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
               <div class="navbar-nav">
-                <a class="nav-item nav-link" routerLink="viewall">View All Institutes</a>
-                <a class="nav-item nav-link" routerLink="viewbyid">View By Id</a>
-                <a class="nav-item nav-link" routerLink="updateinstitute">Update</a>
+                <a class="nav-item nav-link" routerLink="viewall">All Institutes&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a class="nav-item nav-link" routerLink="viewbyid">My profile&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a class="nav-item nav-link" routerLink="updateinstitute">Update profile&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</a>
                 <a class="nav-item nav-link" routerLink="logout">Logout</a>
               </div>
             <!-- </div> -->
           </nav>
     </div>
 </div>
-<div class="row h-100">
-  <div class="col-sm-12">
-    <div class="card card-block mx-auto info-container text-center"> 
-      <h4 class="">Welcome</h4>
-      <span class="material-icons">
-        school
-      </span>
-      <h4>{{name}}</h4>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body hide-card">
+        <div class="welcome-card">
+          <img class="img-fluid" src="../../../assets/students.jpg" alt="students">
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="nav-item nav-link card-link" [routerLink]="['viewStudents', name]"><b>Click here</b> to view all students from {{name}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header text-center">
+        <h4 class="text-color">
+          WELCOME 
+        </h4>
+        <p class="text-format mb-n2 text-color">
+          {{name}}
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="welcome-card">
+          <img class="img-fluid welcome-img" src="../../../assets/college.jpg" alt="institution">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body hide-card">
+        <div class="welcome-card">
+          <img class="img-fluid" src="../../../assets/bg1.jpg" alt="students">
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="nav-item nav-link card-link" routerLink="viewScholarship"><b>Click here</b> to view all scholarship details</a>
+      </div>
     </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>

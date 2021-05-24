@@ -38,7 +38,9 @@ import { GrantScholarshipComponent } from './MinistryComponent/grant-scholarship
 import { CheckStudentComponent } from './MinistryComponent/check-student/check-student.component';
 import { MinistryDashboardComponent } from './MinistryComponent/ministry-dashboard/ministry-dashboard.component';
 import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-ministry.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './carousel/carousel.component';
+import { PasswordComponent } from './InstitutionComponents/password/password.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-minis
     AddMinistryComponent,
 
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    CarouselComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +91,8 @@ import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-minis
     HttpClientModule,
     CommonModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    NgbModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

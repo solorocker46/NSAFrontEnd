@@ -1,27 +1,46 @@
-<input type="text" [(ngModel)]="searchText" placeholder="search text goes here">
-<div class="table-responsive" style="background-color: #fff;">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Institution code</th>
-                <th>Name</th>
-                <th>State</th>
-                <th>Telephone</th>
-                <th>Principal</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- <tr *ngFor = "let institute of institutes"> -->
-            <tr *ngFor = "let institute of institutes | filter : searchText">
-                <td>{{institute.code}}</td>
-                <td>{{institute.name}}</td>
-                <td>{{institute.state}}</td>
-                <td>{{institute.telephone}}</td>
-                <td>{{institute.principal}}</td>
-                <a class="btn btn-primary" [routerLink]="['institute', institute.code]">View all details</a>
-                
-            </tr>
-        </tbody>
-    </table>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-icons">
+                <i class="fa fa-search icon"></i>
+                <input type="text" [(ngModel)]="searchText" placeholder="Search by name / state" class="form-control input-field">
+            </div>
+        </div>
+        <div class="col-md-6 text-right">
+            <div class="input-icons">
+            <i class="fa fa-arrow-circle-o-left fa-lg mt-2 ml-3 pt-1" aria-hidden="true" style="color: #fff;"></i>
+            <button class="btn btn-primary px-5" (click) = "dashboard()">Back</button>
+        </div>
+        </div>
+    </div>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Institution code</th>
+                    <th>Name</th>
+                    <th>State</th>
+                    <th>Telephone</th>
+                    <th>Principal</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor = "let institute of institutes"> -->
+                <tr *ngFor = "let institute of institutes | filter : searchText">
+                    <td>{{institute.code}}</td>
+                    <td>{{institute.name}}</td>
+                    <td>{{institute.state}}</td>
+                    <td>{{institute.telephone}}</td>
+                    <td>{{institute.principal}}</td>
+                    <a class="btn btn-primary px=3" [routerLink]="['institute', institute.code]">View all details</a>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <router-outlet></router-outlet>

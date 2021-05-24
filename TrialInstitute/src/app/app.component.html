@@ -1,4 +1,4 @@
-<div class="container-fluid h-100">
+<div class="container-fluid h-100 background-property">
   <nav class="navbar navbar-expand-lg navbar-light bg-light row">
           <a class="hide-logo" href="#">
               <img src="../assets/cap.png" width="100" height="80" class="d-inline-block align-top hide-logo" alt="">
@@ -20,38 +20,106 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="institution/login" (click) = "onSelect()">INSTITUTION </a>
+                <li class="nav-item">
+                  <a class="nav-link link-effect" style="color: #900f0f; font-weight: bold;" routerLink="institution/login" (click) = "onSelect()">INSTITUTION </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="student/login">STUDENT</a>
+                  <a class="nav-link link-effect" style="color: #900f0f; font-weight: bold;" routerLink="student/login">STUDENT</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" routerLink="officer/login" (click) = "onSelect()">OFFICER</a>
+                  <a class="nav-link link-effect" style="color: #900f0f; font-weight: bold;" routerLink="officer/login" (click) = "onSelect()">OFFICER</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #900f0f; font-weight: bold;" href="ministry/login">MINISTRY</a>
+                  <a class="nav-link link-effect" style="color: #900f0f; font-weight: bold;" routerLink="ministry/login">MINISTRY</a>
                 </li>
               </ul>
             </div>
     </nav>
     <div class="row" [hidden] = "isHidden" id="marquee">
       <div class="col-md-12 navbar-dark bg-dark">
-          <marquee>Welcome to National Scholarship Application! Click here for <a><b>scholarship details</b></a></marquee>
+          <marquee>Welcome to National Scholarship Application! Click here for <a routerLink="viewScholarship"><b>scholarship details</b></a> !</marquee>
       </div>
   </div>
-  <div class="row">
-      <div class="jumbotron text-center image-style" id="jumbotron" [hidden] = "isHidden">
-        <h2 class="display-4 text-style">
-          NATIONAL SCHOLARSHIP APPLICATION
-          <hr style="color: #fff; font-weight: 700;">
-        </h2>
+  <app-carousel id="carousel" [hidden] = "isHidden" class="reduce-size"></app-carousel>
+  <div class="row mt-4" [hidden] = "isHidden" id="content-row">
+		<div class="col-md-8">
+        <div class="about-content text-justify">
+          <strong>National Scholarship Portal (NSP)</strong> is a digital scholarship platform that carries multiple scholarships offered by the central government, state governments and different government agencies.
+          <br><br>
+          <h5>BENEFITS</h5>
+          <ul>
+            <li>You can find all kinds of scholarships information on one platform.</li>
+            <li>It also serves as a great tool for departments and ministries in the form of <b><i>Decision Support System.</i></b></li>
+            <li>It is a user-friendly website.</li>
+          </ul>
+          <h5>VISION</h5>
+          National Scholarship Application Portal is one-stop solution for providing scholarships to students. This initiative aims at providing a simplified, mission-oriented and a faster disposal of scholarship applications.
+          <br><br>
+          <h5>MISSION</h5>
+          The mission of National Scholarship Application Portal aims at providing a common electronic portal for implementing various scholarship schemes launched by the Union Government, State Governments and Union Territories across the country.
+        </div>
       </div>
-  </div>
-   <!-- <a class="nav-link" routerLink="viewScholarship">View Scholarship</a>
-  <a class="nav-link" routerLink="addScholarship">Add Scholarship</a>  -->
-  <!-- <a class="nav-link" routerLink="viewStudent">View Students</a> -->
-  <!-- <a class="nav-link" routerLink="addStudent">Add Students</a> --> 
-  <!-- <a class="nav-link" routerLink="add">Add institute</a> -->
+		<div class="col-md-4">
+      <div class="card card-body card-color">
+        <h5 class="document-card">Documents required for student registration:</h5>
+        <marquee behavior="scroll" direction="up" scrollamount="2" class="document-card">
+      <ul>
+        <li>Aadhar number</li>
+        <li>Contact details</li>
+        <li>Bank details</li>
+        <li>10th and 12th standard scores</li>
+        <li>Family income details</li>
+      </ul>
+    </marquee>
+      </div>
+      <br>
+      <div class="card card-body card-quote-color">
+        <h4>"An investment in knowledge pays the best interest."</h4>
+        <h5 class="text-right">-Benjamin Franklin</h5>
+      </div>
+		</div>
+	</div>
+    <div class="row navbar-dark bg-dark" style="padding: 0;" [hidden] = "isHidden" id="footer-row">
+      <div class="col-md-4" style="padding: 0;">
+        <div class="card card-body navbar-dark bg-dark">
+          <p class="footer">
+            © Copyright 2021
+            <br>
+            National Scholarship Application
+            <br>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-body navbar-dark bg-dark">
+          <p class="footer">
+            <b>Helpline:</b>
+            <br><br>
+            Contact: 23449008 / 23449009
+            <br>
+            Email: nsa2021@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-body navbar-dark bg-dark">
+          <div style="display: inline-block;">
+            <a href="https://facebook.com" class="mx-2">
+              <img src="../assets/iconfinder_1_Facebook_colored_svg_copy_5296499.png">
+            </a>
+            <a href="https://instagram.com" class="mx-2">
+              <img src="../assets/iconfinder_2018_social_media_popular_app_logo_instagram_3225191.png">
+            </a>
+            <a href="https://twitter.com" class="mx-2">
+              <img src="../assets/iconfinder_2018_social_media_popular_app_logo_twitter_3225183.png">
+            </a>
+            <a href="https://linkedin.com" class="mx-2">
+              <img src="../assets/iconfinder_linkedin_834713.png">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <router-outlet></router-outlet>
 </div>

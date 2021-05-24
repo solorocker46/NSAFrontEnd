@@ -16,9 +16,10 @@ export class ViewByInstitutionNameComponent implements OnInit {
 
   students:Student[]=[];
   sub:Subscription=new Subscription();
+  userid:string = this.route.snapshot.url[1].path;
 
   ngOnInit(): void {
-    let link = document.getElementById('jumbotron');
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -27,6 +28,16 @@ export class ViewByInstitutionNameComponent implements OnInit {
     if(link1 != null)
     {
       link1.style.display = "none";
+    }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
     }
     this.sub=this.route.params.subscribe(params =>
       {
@@ -48,6 +59,12 @@ export class ViewByInstitutionNameComponent implements OnInit {
         } 
       }
       );
+  }
+
+  dashboard():void
+  {
+    console.log(this.userid);
+    this.router.navigateByUrl(`institutedashboard/${this.userid}`);
   }
 
 }

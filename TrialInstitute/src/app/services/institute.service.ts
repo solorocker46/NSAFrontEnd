@@ -39,4 +39,10 @@ export class InstituteService {
     let url = 'http://localhost:8034/institution/editInstituteDetails';
     return this.http.put(url+"/"+institution.userId,institution,{responseType:'text'});
   }
+
+  updatePassword(userId:string, password:string):Observable<any>
+  {
+    let url = 'http://localhost:8034/institution/editPassword';
+    return this.http.put(url+"/"+userId,password,{responseType:'text'});
+  }
 }

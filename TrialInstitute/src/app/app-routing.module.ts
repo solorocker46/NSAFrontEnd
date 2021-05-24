@@ -31,9 +31,11 @@ import { CheckStudentComponent } from './MinistryComponent/check-student/check-s
 import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-ministry.component';
 import { GrantScholarshipComponent } from './MinistryComponent/grant-scholarship/grant-scholarship.component';
 import { ViewMinistryComponent } from './MinistryComponent/view-ministry/view-ministry.component';
+import { AppComponent } from './app.component';
+import { PasswordComponent } from './InstitutionComponents/password/password.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/NSA', pathMatch: 'full' },
+  // { path: '', component:AppComponent },
   {path:'student/login', component:LoginComponent},
   {path:'student/login/addStudent',component:AddStudentComponent},
   {path:'student/login/addStudent/editInstitutionDetails/:studentId',component:EditInstitutionDetailsComponent},
@@ -72,6 +74,9 @@ const routes: Routes = [
   {path:'institutedashboard/:userId/updateinstitute', component:UpdateInstituteDetailsComponent},
   {path:'institutedashboard/:userId/logout', component:LogoutComponent},
   {path:'institution/login', component:LoginComponent},
+  {path:'institution/login/changePassword', component:PasswordComponent},
+  {path:'institutedashboard/:userId/viewStudents/:institutionName',component:ViewByInstitutionNameComponent},
+  {path:'institutedashboard/:userId/viewScholarship',component:ViewScholarshipComponent},
   
   {path:'addScholarship', component:AddScholarshipComponent},
   {path:'viewScholarship', component:ViewScholarshipComponent}

@@ -1,88 +1,99 @@
+<br><br>
 <div class="container">
+  <div class="row">
+    <div class="col-md-12 text-right">
+        <div class="input-icons">
+        <i class="fa fa-arrow-circle-o-left fa-lg mt-2 ml-3 pt-1" aria-hidden="true" style="color: #fff;"></i>
+        <button class="btn btn-primary px-5" (click) = "dashboard()">Back</button>
+    </div>
+    </div>
+  </div>
     <div class="col-md-12">
-        <h3 class="text-center">Update Institution</h3>
-        <!-- Equivalent to onsubmit -->
+      <div class="card card-body mx-auto">
+        <h4 class="text-center mt-2">UPDATE INSTITUTION</h4>
       <form #frm="ngForm" (ngSubmit)="updateInstitution(institute)">
      
         <div class="align-center">
-        <!-- [(ngModel)] = emp.id -> 2 way binding i.e; whatever we're entering in frontend will also get added to backend -->
+          <label>Enter User ID</label>
         <input type="text" value="institute.userId" id="id" name="uid" [(ngModel)]="institute.userId" #uid="ngModel" class="form-control" disabled>
       </div>
-      
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="eid.invalid && eid.touched">ID should not be empty</div> -->
 
       <div class="align-center">
-        <input type="password" value="institute.password" id="pass" name="upass" [(ngModel)]="institute.password" #upass="ngModel" class="form-control" disabled>
-      </div>
-     
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="ename.invalid && ename.touched && eid.untouched">Name should not be empty</div> -->
-
-      <div class="align-center">
-        <input type="text" value="institute.role" id="role" name="urole" [(ngModel)]="institute.role"  #urole="ngModel" class="form-control" disabled>
-      </div>
-
-      <div class="align-center">
+        <label>Enter Institution Code</label>
         <input type="number" value="institute.code" id="code" name="ucode" [(ngModel)]="institute.code"  #ucode="ngModel" class="form-control" disabled>
       </div>
 
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="esalary.invalid && esalary.touched && eid.untouched">Salary should not be empty</div> -->
-     
-      <!-- <div class="align-center">
-        <input type="text" value="institute.category" id="category" name="ucategory" [(ngModel)]="institute.category"  #ucategory="ngModel" class="form-control" required>
-      </div> -->
+      <div class="align-center">
+        <label>Enter Institution Name</label>
+        <input type="text" value="institute.name" id="name" name="uname" [(ngModel)]="institute.name"  #uname="ngModel" class="form-control" disabled>
+      </div>
 
       <div>
-        <select id="category" name="ucategory" [(ngModel)]="institute.category"  #ucategory="ngModel" class="form-control" required>
+        <label class="mx-2">Choose category</label>
+        <select id="category" name="ucategory" [(ngModel)]="institute.category"  #ucategory="ngModel" class="form-control dropdown" required>
           <option>Government</option>
           <option>Private</option>
           <option>Autonomous</option>
           </select>
-         
+          <div class="alert alert-danger align-center mx-3" *ngIf="ucategory.invalid && ucategory.touched">Choose a category</div>
       </div>
 
-      <!-- <div class="alert alert-danger align-center" style="width: 43%;" *ngIf="edept.invalid && edept.touched && eid.untouched">Department should not be empty</div> -->
-     
-      <div class="align-center">
-        <input type="text" value="institute.type" id="type" name="utype" [(ngModel)]="institute.type"  #utype="ngModel" class="form-control" disabled>
-      </div>
-
-      <div class="align-center">
-        <input type="text" value="institute.name" id="name" name="uname" [(ngModel)]="institute.name"  #uname="ngModel" class="form-control" disabled>
-      </div>
-
-      <div class="align-center">
-        <input type="text" value="institute.university" id="uni" name="uuni" [(ngModel)]="institute.university"  #uuni="ngModel" class="form-control" required>
+      <div>
+        <label class="mx-2">Choose institution type</label>
+        <select id="type" name="utype" [(ngModel)]="institute.type"  #utype="ngModel" class="form-control dropdown" required>
+          <option>Medical</option>
+          <option>Engineering</option>
+          <option>Law</option>
+        </select>
+        <div class="alert alert-danger align-center mx-3" *ngIf="utype.invalid && utype.touched">Choose institution type</div>
       </div>
 
       <div class="align-center">
+        <label>Enter University</label>
+            <input type="text" placeholder="University" id="uni" name="uuni" [(ngModel)]="institute.university"  #uuni="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center" *ngIf="uuni.invalid && uuni.touched">University cannot be empty</div>
+      </div>
+
+      <div class="align-center">
+        <label>Enter Address</label>
         <input type="text" value="institute.address" id="address" name="uaddress" [(ngModel)]="institute.address"  #uaddress="ngModel" class="form-control" disabled>
       </div>
 
       <div class="align-center">
+        <label>Enter City</label>
         <input type="text" value="institute.city" id="city" name="ucity" [(ngModel)]="institute.city"  #ucity="ngModel" class="form-control" disabled>
       </div>
 
       <div class="align-center">
+        <label>Enter State</label>
         <input type="text" value="institute.state" id="state" name="ustate" [(ngModel)]="institute.state"  #ustate="ngModel" class="form-control" disabled>
       </div>
 
       <div class="align-center">
+        <label>Enter Institution Open Year</label>
         <input type="number" value="institute.yearOpen" id="yop" name="uyop" [(ngModel)]="institute.yearOpen"  #uyop="ngModel" class="form-control" disabled>
       </div>
 
       <div class="align-center">
-        <input type="text" value="institute.telephone" id="phone" name="uphone" [(ngModel)]="institute.telephone"  #uphone="ngModel" class="form-control" required>
+        <label>Enter Telephone</label>
+            <input type="text" placeholder="Telephone" id="phone" name="uphone" [(ngModel)]="institute.telephone"  #uphone="ngModel" class="form-control" required [pattern]="mobNumberPattern">
+            <div class="alert alert-danger align-center"  *ngIf="uphone.invalid && (uphone.dirty || uphone.touched)">
+              <div *ngIf="uphone.errors?.required">Phone number cannot be empty</div>
+              <div *ngIf="uphone.errors?.pattern">Mobile number not valid.</div>
+          </div>
       </div>
 
       <div class="align-center">
-        <input type="text" value="institute.principal" id="principal" name="uprincipal" [(ngModel)]="institute.principal"  #uprincipal="ngModel" class="form-control" required>
+        <label>Enter Principal</label>
+            <input type="text" placeholder="Principal" id="principal" name="uprincipal" [(ngModel)]="institute.principal"  #uprincipal="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center" *ngIf="uprincipal.invalid && uprincipal.touched">Principal name cannot be empty</div>
       </div>
 
-      <div class="align-center">
-      <input type="submit" value="Update Institution"  class="btn btn-primary">
-      <!-- [disabled]="!frm.valid" -->
+      <div class="align-center text-center">
+      <input type="submit" value="Update Institution" [disabled]="!frm.valid" class="btn btn-primary btn-shape mt-3 px-3 py-2">
     </div>
     </form>
+  </div>
     </div>
     
 </div>
