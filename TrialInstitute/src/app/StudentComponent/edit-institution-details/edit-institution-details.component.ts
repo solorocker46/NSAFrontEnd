@@ -17,13 +17,12 @@ export class EditInstitutionDetailsComponent implements OnInit
   sub:Subscription=new Subscription();
   institutionName!: String;
   institutes:Institution[] |undefined;
-  //instNames:string[] | undefined;
 
   constructor(private studentService:StudentService, private route:ActivatedRoute,private router:Router, private instituteService:InstituteService) { }
 
   ngOnInit(): void 
   {
-    let link = document.getElementById('jumbotron');
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -33,6 +32,17 @@ export class EditInstitutionDetailsComponent implements OnInit
     {
       link1.style.display = "none";
     }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
+    }
+
     this.sub=this.route.params.subscribe(params =>
       {
         const studentId=params['studentId'];
@@ -60,10 +70,10 @@ export class EditInstitutionDetailsComponent implements OnInit
           this.institutes=data;
           console.log(this.institutes);
         },
-        error =>
+        err=>
         {
-          alert("Error");
-          console.log("Error Occurred "+error);
+          alert(err.error);
+          console.log("Error Occurred",err.error);
         }
         );
   }
@@ -75,14 +85,13 @@ export class EditInstitutionDetailsComponent implements OnInit
         this.institutionName=insName;
         alert("Institution Details Added Successfully");
         this.router.navigateByUrl(`student/login`);
-        //this.router.navigateByUrl(`student/login/addStudent/editInstitutionDetails/applyScholarship/${this.student.studentId}`);
-        //this.router.navigateByUrl(`studentDashboard/viewStudentByUserId/${this.student.userId}`)
-      
       },
-      error =>
-      {
-        console.log("Error Occurred",error);
-      })
+      err=>
+        {
+          alert(err.error);
+          console.log("Error Occurred",err.error);
+        }
+      )
   }
 
 }

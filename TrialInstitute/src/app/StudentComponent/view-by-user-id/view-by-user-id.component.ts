@@ -24,7 +24,7 @@ export class ViewByUserIdComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    let link = document.getElementById('jumbotron');
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -34,107 +34,71 @@ export class ViewByUserIdComponent implements OnInit {
     {
       link1.style.display = "none";
     }
-    // this.sub=this.route.params.subscribe(params=>
-    //   {
-    //     const userId=params['userId'];
-        console.log(this.userid);
-        // if(userId) 
-        // {
-          this.studentService.getDate(this.userid).subscribe((data:any) =>
-          {
-            if(data) 
-            {
-              console.log(this.userid);
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
+    }
 
-              this.dateconvert=data;
-              console.log(this.dateString);
 
-            }
-            else
-            {
-              console.log(this.dateString);
-              //console.log(`Student with ${userId} not found`);
-            }
-          },
-          err=>
-          {
-            //alert(err.toString());
-            console.log("Error = ",err.error);
-            console.log(this.dateString);
-          }
-          );
-        //}
-      // }
-      // );
-    this.sub=this.route.params.subscribe(params=>
+    this.studentService.getDate(this.userid).subscribe((data:any) =>
+    {
+      if(data) 
       {
-        const userId=params['userId'];
-        if(userId) 
-        {
-          this.studentService.getByUserId(this.userid).subscribe((data:any) =>
-          {
-            if(data) 
-            {
-              this.student=data;
-              //this.getDate(this.userid);
-              // console.log(this.dateString);
-              console.log(this.dateconvert.date);
-              //let latest_date =this. datepipe. transform(this.dateconvert.date, 'yyyy-MM-dd');
-             
-              if(this.dateconvert.date !== undefined)
-              {
-                this.dateString = new Date(this.dateconvert.date);
-                let bdate = this.datepipe.transform(this.dateString, 'dd-MMM-yyyy');
-                if(bdate)
-                  this.student.birthDate = bdate;
-              }
-              
-            }
-            else
-            {
-              console.log(`Student with ${userId} not found`);
-            }
-          },
-          err=>
-          {
-            console.log("Error = ",err.error);
-            
-          }
-          );
-        }
+        this.dateconvert=data;
       }
-      );
+      else
+      {
+        console.log(this.dateString);
+      }
+    },
+    err=>
+    {
+      console.log("Error = ",err.error);
+    }
+    );
+
+    this.sub=this.route.params.subscribe(params=>
+    {
+      const userId=params['userId'];
+      if(userId) 
+      {
+        this.studentService.getByUserId(this.userid).subscribe((data:any) =>
+        {
+          if(data) 
+          {
+            this.student=data;
+            if(this.dateconvert.date !== undefined)
+            {
+              this.dateString = new Date(this.dateconvert.date);
+              let bdate = this.datepipe.transform(this.dateString, 'dd-MMM-yyyy');
+              if(bdate)
+                this.student.birthDate = bdate;
+            }
+          }
+          else
+          {
+            console.log(`Student with ${userId} not found`);
+          }
+        },
+        err=>
+        {
+          console.log("Error = ",err.error);          
+        }
+        );
+      }
+    }
+    );
   }
-
-  // getDate(userId:string)
-  // {
-      
-  //     this.sub=this.route.params.subscribe(params=>
-  //     {
-  //       const userId=params['userId'];
-  //       if(userId) 
-  //       {
-  //         this.studentService.getDate(this.userid).subscribe((data:string) =>
-  //         {
-  //           if(data) 
-  //           {
-  //             this.dateString=data.toString();
-  //             console.log(this.dateString);
-  //           }
-  //           else
-  //           {
-  //             console.log(this.dateString);
-  //             console.log(`Student with ${userId} not found`);
-  //           }
-  //         },
-  //         err=>
-  //         {
-  //           console.log("Error = ",err.error);
-  //         }
-  //         );
-  //       }
-  //     }
-  //     );
-  // }
-
+  studentDashboard():void
+  {
+    this.router.navigateByUrl(`studentDashboard/${this.userid}`);
+  }
 }
+
+

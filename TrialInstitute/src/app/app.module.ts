@@ -41,6 +41,8 @@ import { AddMinistryComponent } from './MinistryComponent/add-ministry/add-minis
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { PasswordComponent } from './InstitutionComponents/password/password.component';
+import { FilterPipeStudent } from './StudentComponent/view-student/filter.pipe';
+import { PasswordStudentComponent } from './StudentComponent/password-student/password-student.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { PasswordComponent } from './InstitutionComponents/password/password.com
     ViewAllComponent,
     DetailedInstituteDetailsComponent,
     FilterPipe,
+    FilterPipeStudent,
     AddInstituteComponent,
     UpdateInstituteDetailsComponent,
 
@@ -82,7 +85,8 @@ import { PasswordComponent } from './InstitutionComponents/password/password.com
     LoginComponent,
     LogoutComponent,
     CarouselComponent,
-    PasswordComponent
+    PasswordComponent,
+    PasswordStudentComponent
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,7 @@ export class ApplyScholarshipComponent implements OnInit
 
   ngOnInit(): void 
   {
-    let link = document.getElementById('jumbotron');
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -35,6 +35,16 @@ export class ApplyScholarshipComponent implements OnInit
     if(link1 != null)
     {
       link1.style.display = "none";
+    }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
     }
 
     this.sub=this.route.params.subscribe(params =>
@@ -64,39 +74,33 @@ export class ApplyScholarshipComponent implements OnInit
           this.scholarships=data;
           console.log(this.scholarships);
         },
-        error =>
+        err=>
         {
-          console.log("Error Occurred "+error);
+          alert(err.error);
+          console.log("Error Occurred",err.error);
         }
         );
   }
+
+  studentDashboard():void
+  {
+    this.router.navigateByUrl(`studentDashboard/${this.userid}`);
+  }
+
 
   applyScholarshipById(scholarId:number)
   {
     let schId: number=Number(scholarId).valueOf();
     this.studentService.applyScholarship(this.studentId,schId).subscribe(data =>
       {
-        // console.log(this.studentId);
-        // if(typeof schId=="number")
-        //   console.log("number")
-        // else
-        //   console.log(typeof schId);
-        // console.log(this.scholarshipid);
         this.scholarshipid=schId;
         alert("Scholarship applied");
-        //this.router.navigateByUrl(`student/login`);
         this.router.navigateByUrl(`studentDashboard/${this.userid}/viewStudentByUserId`);
       },
-      error =>
+      err =>
       {
-        // alert(error);
-        // if(typeof scholarId=="number")
-        //   console.log("number")
-        // else
-        //   console.log(typeof scholarId);
-        // console.log(this.studentId);
-        // console.log(this.scholarshipid);
-        console.log("Error Occured", error);
+        alert(err.error);
+        console.log("Error Occured", err.error);
       }
       )
   }

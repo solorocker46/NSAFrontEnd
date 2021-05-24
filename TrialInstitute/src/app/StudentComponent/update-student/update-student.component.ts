@@ -11,16 +11,21 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class UpdateStudentComponent implements OnInit {
 
-  dateString:string = '';
   student:Student=new Student();
   sub:Subscription=new Subscription();
+  userid:string = this.route.snapshot.url[1].path;
+  
+  mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$";  
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  aadharPattern = "^[2-9]{1}[0-9]{11}$";
+  bankIfscPattern = "^[A-Z]{4}0[A-Z0-9]{6}$"; 
 
   constructor(private studentService:StudentService, private route:ActivatedRoute,private router:Router) 
   { }
 
   ngOnInit(): void 
   {
-    let link = document.getElementById('jumbotron');
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -30,6 +35,17 @@ export class UpdateStudentComponent implements OnInit {
     {
       link1.style.display = "none";
     }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
+    }
+
     this.sub=this.route.params.subscribe(params=>
       {
         const userId=params['userId'];
@@ -52,75 +68,24 @@ export class UpdateStudentComponent implements OnInit {
       );
   }
 
+  studentDashboard():void
+  {
+    this.router.navigateByUrl(`studentDashboard/${this.userid}`);
+  }
+
   updateStudent(stu:Student)
   {
     this.studentService.updateStudent(this.student).subscribe(data =>
       {
         this.student=stu;
-        if(stu.birthDate != null)
-        {
-          this.dateString = stu.birthDate.toString();
-        }
-        if(stu.userId !== undefined)
-          this.editDate(stu.userId);
-        console.log("date "+this.dateString);
-        //console.log(stu.birthDate);
         alert("Updated Successfully");
         this.router.navigateByUrl(`studentDashboard/${this.student.userId}/viewStudentByUserId`);
       },
-      error =>
+      err=>
       {
-        console.log("Error Occurred", error);
+        alert(err.error);
+        console.log("Error Occurred",err.error);
       }
       );
   }
-
-  editDate(userId:string)
-  {
-    this.studentService.updateDate(userId, this.dateString).subscribe(
-      data=>
-      {
-        console.log("date "+this.dateString);
-        console.log("Date edited!");
-        // if(this.stu.birthDate != null)
-        // {
-        //   this.dateString = this.stu.birthDate.toString();
-        // }
-        // console.log("date "+this.dateString);
-        // alert("Student Added");
-        //this.router.navigateByUrl(`student/login/addStudent/editInstitutionDetails/${this.stu.studentId}`);
-        //this.router.navigateByUrl(`studentDashboard/viewStudentByUserId/${this.stu.userId}`);
-      },
-      err=>
-      {
-        console.log("Error Occurred",err.error);
-      }
-    );
-  }
-
-  }
-
-  // editStudent(student:Student)
-  // {
-  //   this.editstudent=true;
-  //   this.stu=student;
-  //   console.log(this.stu.userId+' '+this.stu.studentId+' '+this.stu.fullName);
-  // }
-
-  // updateStudent(student:Student)
-  // {
-  //   this.editstudent=true;
-  //   this.studentService.updateStudent(this.stu).subscribe(
-  //     data=>
-  //     {
-  //       this.stu=student;
-  //       console.log(this.stu.userId+' '+this.stu.studentId+' '+this.stu.fullName)
-  //       this.editstudent=false;
-  //     },
-  //     error=>
-  //     {
-  //       console.log("error occurred ",error);
-  //     }
-  //   )
-  // }
-
+}

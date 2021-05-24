@@ -1,24 +1,38 @@
-<div class="container col-md-6">
-    <!-- <div class="col-md-12"> -->
-        <h3 class="text-center">Apply For Scholarship</h3>   
-        <form #frm="ngForm" (ngSubmit)="applyScholarshipById(scholarshipid)">   
-           <div class="align-center">
-            <h5>Scholarship Id</h5>
-            <!-- <input type="number"  placeholder="Enter Scholarship Id" id="id" name="schId" [(ngModel)]="scholarshipId" class="form-control"> -->
-           </div>
-           <select class="form-control" [(ngModel)]="scholarshipid" name="schId">
-               <option *ngFor="let sch of scholarships" ngValue={{sch.scholarshipId}}>{{sch.scholarshipId}} - {{sch.scholarshipName}}</option>
-           </select>
-            <br>
-
-            <div class="align-center">
-                <input type="submit" value="Apply For Scholarship" [disabled]="!frm.valid" class="btn btn-primary">
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <div class="input-icons">
+                <i class="fa fa-arrow-circle-o-left fa-lg mt-2 ml-3 pt-1" aria-hidden="true" style="color: #fff;"></i>
+                <button class="btn btn-primary px-5" (click) = "studentDashboard()">Dashboard</button>
             </div>
-        </form>
+        </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="card card-body mx-auto align-center">
+            <h4 class="text-center mt-2">APPLY FOR SCHOLARSHIP</h4> 
+                <form #frm="ngForm" (ngSubmit)="applyScholarshipById(scholarshipid)"> 
+                    
+                    <div class="align-center">
+                        <label>Select Scholarship</label>
+                        <select class="form-control" [(ngModel)]="scholarshipid" name="schId" #schId="ngModel" required>
+                           <option *ngFor="let sch of scholarships" ngValue={{sch.scholarshipId}}>{{sch.scholarshipId}} - {{sch.scholarshipName}}</option>
+                        </select>
+                        <div class="alert alert-danger align-center" *ngIf="schId.invalid && schId.touched">Select Scholarship</div>
+                    </div>
 
-        <a class="nav-link" routerLink="../../../viewScholarship">View All Scholarships</a>
- 
-    <!-- </div> -->
+                    <div class="align-center text-center">
+                        <input type="submit" value="Apply For Scholarship" [disabled]="!frm.valid" class="btn btn-primary  btn-shape mt-3 px-3 py-2">
+                    </div>
+                
+                </form>
+                <div>
+                    <h6>View All Scholarships</h6>
+                    <a class="nav-link align-center link-style" routerLink="viewScholarship">Click here</a>
+                </div>
+        </div> 
+    </div>   
 </div>
 <router-outlet></router-outlet>
 

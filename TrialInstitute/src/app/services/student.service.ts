@@ -70,4 +70,10 @@ export class StudentService {
     let url = 'http://localhost:8034/student/getDate';
     return this.http.get(url+"/"+userId);
   }
+
+  updateStudentPassword(userId:string, password:string):Observable<any>
+  {
+    let url = 'http://localhost:8034/student/editStudentPassword';
+    return this.http.put(url+"/"+userId,password,{responseType:'text'});
+  }
 }

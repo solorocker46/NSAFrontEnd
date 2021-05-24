@@ -16,7 +16,29 @@ export class LoginComponent implements OnInit {
   path:String = new String();
   passPath:String = new String();
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    let link = document.getElementById('carousel');
+    if(link != null)
+    {
+      link.style.display = "none";
+    }
+    let link1 = document.getElementById('marquee');
+    if(link1 != null)
+    {
+      link1.style.display = "none";
+    }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
+    }
+
     if(this.router.url == "/institution/login")
     {
       this.user.role = "Institution";
@@ -27,6 +49,7 @@ export class LoginComponent implements OnInit {
     {
       this.user.role = "Student";
       this.path = "addStudent";
+      this.passPath = `changeStudentPassword`;
     }
     else if(this.router.url == '/officer/login')
     {

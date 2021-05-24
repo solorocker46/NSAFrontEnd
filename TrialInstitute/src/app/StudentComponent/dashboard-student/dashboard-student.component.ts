@@ -17,10 +17,12 @@ export class DashboardStudentComponent implements OnInit {
   sub:Subscription=new Subscription();
   studentId!: number;
   institutionName!: String;
-  userId!: String;
+  userId:string = this.route.snapshot.url[1].path;
+  fullName!: string;
 
-  ngOnInit(): void {
-    let link = document.getElementById('jumbotron');
+  ngOnInit(): void 
+  {
+    let link = document.getElementById('carousel');
     if(link != null)
     {
       link.style.display = "none";
@@ -30,7 +32,41 @@ export class DashboardStudentComponent implements OnInit {
     {
       link1.style.display = "none";
     }
+    let link2 = document.getElementById('content-row');
+    if(link2 != null)
+    {
+      link2.style.display = "none";
+    }
+    let link3 = document.getElementById('footer-row');
+    if(link3 != null)
+    {
+      link3.style.display = "none";
+    }
 
+
+    this.sub=this.route.params.subscribe(params =>
+      {
+        const userid=params['userId'];
+        if(userid)
+        {
+          this.studentService.getByUserId(this.userId).subscribe((data : any) =>
+          {
+            if(data)
+            {
+              if(data.fullName !==undefined)
+              {
+                this.fullName=data.fullName;
+              }
+              else
+              {
+                console.log(`Student with $(this.userId) not found`);
+              }
+            }
+          }
+          );
+        }
+      }
+      );
   }
 
 }

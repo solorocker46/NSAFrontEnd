@@ -1,18 +1,21 @@
-<div class="container col-md-6">
-    <!-- <div class="col-md-12"> -->
-        <h3 class="text-center">Update Institution</h3>   
-        <form #frm="ngForm" (ngSubmit)="updateInstitutionDetails(institutionName)">   
-           <div class="align-center">
-            <h5>Institution Name</h5>
-            <!-- <input type="text"  placeholder="Enter institution Name" id="name" name="insname" [(ngModel)]="institutionName" class="form-control"> -->
-           </div>
-           <select class="form-control" [(ngModel)]="institutionName" name="insname">
-               <option *ngFor="let ins of institutes" ngValue={{ins.name}}>{{ins.name}}</option>
-           </select>
-            <br>
-            <div class="align-center">
-                <input type="submit" value=" Edit Institution" [disabled]="!frm.valid" class="btn btn-primary">
-            </div>
-        </form>
-    <!-- </div> -->
+<div class="container">
+    <div class="col-md-12">
+        <div class="card card-body mx-auto align-center">
+            <h4 class="text-center mt-2">SELECT INSTITUTION</h4>
+            <form #frm="ngForm" (ngSubmit)="updateInstitutionDetails(institutionName)">
+                
+                <div class="align-center">
+                    <label>Select Institution Name</label>
+                    <select class="form-control dropdown" [(ngModel)]="institutionName" name="insname" #insname="ngModel" required>
+                       <option *ngFor="let ins of institutes" ngValue={{ins.name}}>{{ins.name}}</option>
+                    </select>
+                   <div class="alert alert-danger align-center" *ngIf="insname.invalid && insname.touched">Select Institution Name</div>
+                </div>
+
+                <div class="align-center text-center">
+                    <input type="submit" value="Submit" [disabled]="!frm.valid" class="btn btn-primary btn-shape mt-3 px-3 py-2">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

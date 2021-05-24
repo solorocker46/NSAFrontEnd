@@ -33,19 +33,24 @@ import { GrantScholarshipComponent } from './MinistryComponent/grant-scholarship
 import { ViewMinistryComponent } from './MinistryComponent/view-ministry/view-ministry.component';
 import { AppComponent } from './app.component';
 import { PasswordComponent } from './InstitutionComponents/password/password.component';
+import { PasswordStudentComponent } from './StudentComponent/password-student/password-student.component';
 
 const routes: Routes = [
   // { path: '', component:AppComponent },
   {path:'student/login', component:LoginComponent},
+  {path:'student/login/changeStudentPassword',component:PasswordStudentComponent},
   {path:'student/login/addStudent',component:AddStudentComponent},
   {path:'student/login/addStudent/editInstitutionDetails/:studentId',component:EditInstitutionDetailsComponent},
-  {path:'studentDashboard/:userId/applyScholarship',component:ApplyScholarshipComponent},
   {path:'studentDashboard/:userId',component:DashboardStudentComponent},
+  {path:'studentDashboard/:userId/viewScholarship',component:ViewScholarshipComponent},
+  {path:'studentDashboard/:userId/applyScholarship',component:ApplyScholarshipComponent},
+  {path:'studentDashboard/:userId/applyScholarship/viewScholarship',component:ViewScholarshipComponent},
   {path:'studentDashboard/:userId/viewStudentByUserId',component:ViewByUserIdComponent},
   {path:'studentDashboard/:userId/viewStudent',component:ViewStudentComponent},
   {path:'studentDashboard/:userId/updateStudent',component:UpdateStudentComponent},
   {path:'studentDashboard/:userId/viewStudent/viewStudentByStudentId/:studentId',component:ViewByStudentIdComponent},
   {path:'studentDashboard/:userId/viewStudentByInstitutionName/:institutionName',component:ViewByInstitutionNameComponent},
+  {path:'studentDashboard/:userId/logout', component:LogoutComponent},
 
   {path:'officer/login', component:LoginComponent},
   {path: 'officerdashboard/:userId', component:OfficerDashboardComponent},
