@@ -48,8 +48,8 @@ export class CheckStudentComponent implements OnInit {
 
   refresh(std:Student){
     this.grantScholarship(std);
+    alert("checked student");
     //this.getAllStudents();
-    alert("student is checked");
     this.router.navigate([`ministry-dashboard/${this.userid}/grant-scholarship`]);
   }
 

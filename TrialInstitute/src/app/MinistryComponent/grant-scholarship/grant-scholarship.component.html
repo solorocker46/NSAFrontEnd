@@ -1,9 +1,21 @@
-<div class="col-md-12">
-    <button class = "btn btn-danger" (click) = "dashboard()">Dashboard</button>
-</div>
+<br><br>
 <div class="row">
-    <div class="col-md-12">
-<table class="table table-condensed table-hover table-responsive table-bordered ">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+        <button class = "btn btn-danger" (click) = "dashboard()">Dashboard</button>
+    </div>
+
+</div>
+
+
+<br><br>
+
+<h3>GRANT SCHOLARSHIP</h3>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+<table class="table  table-hover table-responsive ">
     <tr>
         <th>Student Id</th>
         <th>Full Name</th>
@@ -18,7 +30,7 @@
 
     <ng-container *ngFor="let stu of students">
     <ng-container *ngIf = "stu.appStatus !== undefined && stu.approval!== undefined">
-    <tr [ngStyle]="{'background':getColor(stu.appStatus,stu.approval)}">
+    <tr>
         <td>{{stu.studentId}}</td>
         <td>{{stu.fullName}}</td>
         <td>{{stu.mobile}}</td>
@@ -26,22 +38,15 @@
         <td>{{stu.aadhar}}</td>
         <td>{{stu.field}}</td>
         <td>{{stu.course}}</td>
-        <td>{{stu.appStatus}}</td>
+        <td [ngStyle]="{'background':getColor(stu.appStatus,stu.approval)}">{{stu.appStatus}}</td>
         <td><button class = "btn btn-danger" (click) = "check(stu)"> Check </button></td>
     </tr>
     
     </ng-container>
     </ng-container>
-
-    <!--<tr  >
-    <div  class="table table-condensed table-hover table-responsive ">
-    <div   class="table table-condensed table-hover table-responsive ">
-       
-        </div>
-        </div>
-    </tr>-->
 </table>
 </div>
+<div class="col-md-2"></div>
 </div>
 
 

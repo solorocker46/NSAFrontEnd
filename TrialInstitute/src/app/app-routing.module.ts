@@ -69,9 +69,10 @@ const routes: Routes = [
   {path:'ministry-dashboard/:userId/addScholarship', component:AddScholarshipComponent},
   {path:'ministry-dashboard/:userId/viewScholarship', component:ViewScholarshipComponent},
   {path:'ministry/login', component:LoginComponent},
-  {path:'ministry/login/add-ministry', component:AddMinistryComponent},
+  {path:'ministry-dashboard/:userId/add-ministry', component:AddMinistryComponent},
   {path:'ministry-dashboard/:userId/grant-scholarship',component:GrantScholarshipComponent},
   {path:'ministry-dashboard/:userId/view-ministry',component:ViewMinistryComponent},
+  {path:'ministry-dashboard/:userId/logout', component:LogoutComponent},
 
   // {path:'institutedashboard/:userId/add', component:AddInstituteComponent},
   {path:'institution/login/addInstitute', component:AddInstituteComponent},

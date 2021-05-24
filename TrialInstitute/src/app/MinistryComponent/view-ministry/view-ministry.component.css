@@ -1,0 +1,19 @@
+table{
+    border: 1px solid black;
+    box-shadow:10px 10px 5px grey;
+    width:100%;
+}
+
+tr:nth-child(even){
+    background-color: rgb(219, 134, 219);
+}
+
+h2{
+    color: brown;
+    text-shadow: 2px 2px 8px darkmagenta;
+    text-align: center;
+}
+
+th,tr{
+    width: 100%;
+}

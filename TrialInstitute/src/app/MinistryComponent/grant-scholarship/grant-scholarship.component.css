@@ -1,0 +1,17 @@
+tr:nth-child(even){
+    background-color: thistle;
+}
+
+table{
+    width:100%;
+    border: 1px solid black;
+    box-shadow:10px 10px 5px grey;
+}
+
+h3{
+    color: brown;
+    text-shadow: 2px 2px 8px darkmagenta;
+    text-align: center;
+}
+
+

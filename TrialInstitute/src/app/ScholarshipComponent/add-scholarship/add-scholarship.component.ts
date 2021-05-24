@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ScholarshipService } from 'src/app/services/scholarship.service';
 import { Scholarship } from 'src/app/modules/scholarship';
 
@@ -11,7 +11,8 @@ import { Scholarship } from 'src/app/modules/scholarship';
 export class AddScholarshipComponent implements OnInit {
 
   scholarship:Scholarship = new Scholarship();
-  constructor(private scholarshipService:ScholarshipService,private router:Router) { }
+  userid:string = this.route.snapshot.url[1].path;
+  constructor(private scholarshipService:ScholarshipService,private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +22,7 @@ export class AddScholarshipComponent implements OnInit {
     this.scholarshipService.addScholarship(this.scholarship).subscribe(data =>
       {
         alert("Scholarship added");
-        this.router.navigateByUrl("view");
+        this.router.navigateByUrl(`ministry-dashboard/${this.userid}/viewScholarship`);
       },
       error =>
       {

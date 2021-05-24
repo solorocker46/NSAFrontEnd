@@ -1,4 +1,4 @@
-<p>ministry-dashboard works!</p>
+
 
 <div class="row" id="dashboard">
     <div class="col-md-12">
@@ -8,8 +8,13 @@
                 <a class="nav-item nav-link" routerLink="view-ministry">View Ministry</a>
                 <a class="nav-item nav-link" routerLink="grant-scholarship">Grant</a>
                 <a class="nav-link" routerLink="addScholarship">Add Scholarship Details</a>
-                
 
+                
+                <div class="nav navbar-nav navbar-right">
+                    <a class="nav-item nav-link" routerLink="add-ministry">New user</a>
+                    <a class="nav-item nav-link" routerLink="logout">Logout</a>
+                </div>
+                
             </div>
             
 
@@ -17,3 +22,68 @@
     </div>
 </div>
 <router-outlet></router-outlet>
+ 
+
+
+<div class="row">
+  <div class="col-md-3">
+
+    <div class="columns" id="first-third">
+      
+        <figure class="article-image">
+          <img src="https://s.clipartkey.com/mpngs/s/115-1158032_tips-for-pursuing-a-college-tuition-transparent-background.png" style= "height:230px; width:390px;">
+        </figure>
+        <div class="article-body">
+          <h2 class="article-title">
+            About Us
+          </h2>
+          <p class="article-content">
+            Students fulfilling the Scheme guidelines of various Ministries are eligible to apply for these scholarships.Ministry of Education and Human Resources provide funds in the form of scholarship to fullfill the dreams of the young minds.
+            This is one-stop solution for various scholarship schemes offered by Govt. of India though various central Ministries and State Departments. 
+          </p>
+          
+        </div>
+      
+    </div>
+
+  </div>
+  <div class="col-md-6" id="head">
+    <br> <br>
+    <img src="https://i.pinimg.com/originals/42/4a/39/424a39fa2911100cd6700fd7fa32b0fc.png" style ="height: 150px;width: 150px;">
+    <br>
+    <br>
+    <br>
+    <br><br><br><br><br>
+    <h1>MINISTRY OF EDUCATION AND HUMAN RESOURSES</h1>
+    <h3>GOVERNMENT OF INDIA</h3>
+
+    <br><br><br>
+    <div id="wel">
+    <h4 class="welcome">Welcome!!</h4>
+    <h5 class="welcome">User: {{minister.userId}} 
+      Portfolio: {{minister.portfolio}}</h5>
+      </div>
+
+
+  
+
+  </div>
+  <div class="col-md-3">
+    <br> <br>
+    <img src="https://www.greatvaluecolleges.net/wp-content/uploads/2021/04/The-15-Best-Scholarship-Websites-Find-Your-Way-to-Pay-for-College-.jpg" alt="minister"  style="height: 300px;width: 400px;border-radius: 45px;">
+
+  <br><br><br><br><br><br>
+  
+    <div class="container" id="quotes">
+  <blockquote class="quote-card">
+    <h5>
+      Education is the manifestation of perfection already in man. 
+    </h5>
+
+    <cite>
+      Swami Vivekananda.
+    </cite>
+  </blockquote></div>
+  </div>
+  
+</div>

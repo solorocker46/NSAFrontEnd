@@ -36,22 +36,20 @@ export class GrantScholarshipComponent implements OnInit {
   
 
   check(student:Student){
-    alert("check student");
     this.router.navigate([`ministry-dashboard/${this.userid}/check-student`,JSON.stringify(student)]);
-
   }
   //appStatus:String=new String();
 
   getColor(appStatus:string,approval:string):string{
     //console.log("appStatus= "+appStatus);
-    if(approval=="pending"){
-      return 'yellow';
+    if(approval=="pending" || approval=="Pending" ){
+      return 'rgb(237, 223, 100)';
     }
-    if(appStatus=="pending"){
-      return 'white';
+    if(appStatus=="pending" || appStatus=="Pending" ){
+      return 'pink';
     }
     else if(appStatus=="Approved"){
-      return 'green';
+      return 'rgb(125, 219, 150)';
     }
     
     else{
@@ -62,7 +60,6 @@ export class GrantScholarshipComponent implements OnInit {
   }
 
   dashboard(){
-    alert("go to dashboard");
     this.router.navigateByUrl(`ministry-dashboard/${this.userid}`);
   }
 

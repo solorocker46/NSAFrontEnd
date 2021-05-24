@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Ministry } from 'src/app/modules/ministry';
+import { MinistryService } from 'src/app/services/ministry.service';
 
 @Component({
   selector: 'app-ministry-dashboard',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MinistryDashboardComponent implements OnInit {
 
-  constructor() { }
+  userId:string = this.route.snapshot.url[1].path;
+  minister:Ministry=new Ministry();
+  constructor(private ministryService:MinistryService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     let link = document.getElementById('jumbotron');
@@ -20,6 +25,13 @@ export class MinistryDashboardComponent implements OnInit {
     {
       link1.style.display = "none";
     }
+    this.ministryService.getMinistryById(this.userId).subscribe(data=>
+      {this.minister=data;},
+      error=>{
+        console.log("error occured");})
+    
   }
+
+  
 
 }

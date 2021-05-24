@@ -1,34 +1,41 @@
-<div class="col-md-6 text-center">
-    <h2 class="text-center">Add Scholarship</h2>
-    <br>
+<div class="card card-body mx-auto">
+  <h4 class="text-center mt-2">ADD SCHOLARSHIP</h4>
+  <br>
     <!--Two way bnding-->
     <form #frm="ngForm" (ngSubmit)="addScholarship()">
      
         <div class="align-center">
         <!-- [(ngModel)] = scholarship.scholarshipId -> 2 way binding i.e; whatever we're entering in frontend will also get added to backend -->
+        <label>Enter scholarshipId</label>
         <input type="number" placeholder="enter scholarshipid" id="id" name="sid" [(ngModel)]="scholarship.scholarshipId" #sid="ngModel" class="form-control" required>
+        <div class="alert alert-danger align-center" *ngIf="sid.invalid && sid.touched">ID should not be empty</div>
       </div>   
-      <div class="alert alert-danger align-center" *ngIf="sid.invalid && sid.touched">ID should not be empty</div>
-  
+      
       <div class="align-center">
+        <label>Enter scholarshipName</label>
         <input type="text" placeholder="enter scholarshipName" id="name" name="sname" [(ngModel)]="scholarship.scholarshipName" #sname="ngModel" class="form-control" required>
       </div>
       <div class="alert alert-danger align-center"  *ngIf="sname.invalid && sname.touched">Name should not be empty</div>
      
       <div class="align-center">
+        <label>Enter sscScoreCriteria</label>
         <input type="text" placeholder="enter sscScoreCriteria" id="sscore" name="sscore" [(ngModel)]="scholarship.sscScoreCriteria"   class="form-control" >
       </div>
 
       <div class="align-center">
+        <label>Enter hscScoreCriteria</label>
         <input type="text" placeholder="enter hscScoreCriteria" id="hscore" name="hscore" [(ngModel)]="scholarship.hscScoreCriteria"   class="form-control" >
       </div>
      
       <div class="align-center">
+        <label>Enter familyIncomeCriteria</label>
         <input type="text" placeholder="enter familyIncomeCriteria" id="income" name="income" [(ngModel)]="scholarship.familyIncomeCriteria"   class="form-control" >
       </div>
      
-      <div class="align-center">
-      <input type="submit" value="Add scholarship" [disabled]="!frm.valid" class="btn btn-primary">
-    </div>
+      <div class="align-center text-center">
+        <input type="submit" value="Add Scholarship" [disabled]="!frm.valid" class="btn btn-primary btn-shape mt-3 px-3 py-2">
+      </div>
     </form>
   </div>
+  
+

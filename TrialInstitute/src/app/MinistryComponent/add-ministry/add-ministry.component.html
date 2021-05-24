@@ -1,38 +1,46 @@
 <!--<p id="muser"><h1><b>NEW MINISTRY REGISTRATION</b></h1></p>-->
 
-<div class="col-md-6 text-center">
-    <h2 class="text-center">Add Ministry</h2>
-    <br>
-    <!--Two way bnding-->
-    <form #frm="ngForm" (ngSubmit)="createNewMinistry()">
-         <label> USER ID</label>
-        <div class="align-center">
-        <!-- [(ngModel)] = emp.id -> 2 way binding i.e; whatever we're entering in frontend will also get added to backend -->
-        <input type="text" placeholder="enter userid" id="id" name="uid" [(ngModel)]="ministry.userId" #uid="ngModel" class="form-control" required>
-      </div>   
-      <div class="alert alert-danger align-center" *ngIf="uid.invalid && uid.touched">ID should not be empty</div>
-      <label> PASSWORD </label>
-      <div class="align-center">
-        <input type="password" placeholder="enter password" id="password" name="upassword" [(ngModel)]="ministry.password" #upassword="ngModel" class="form-control" required>
-      </div>
-      <!--<label> ROLE </label>
-      <div class="align-center">
-        <input type="text" placeholder="enter role" id="role" name="urole" [(ngModel)]="ministry.role"   class="form-control" >
-      </div>-->
-     
-      <label> PORTFOLIO </label>
-      <div class="align-center">
-        <input type="text" placeholder="enter portfolio" id="portfolio" name="mportfolio" [(ngModel)]="ministry.portfolio" #mportfolio="ngModel"  class="form-control" required >
-      </div>
 
-      <div class="alert alert-danger align-center" *ngIf="mportfolio.invalid && mportfolio.touched">portfolio should not be empty</div>
+<br><br>
+<div class="container">
+    <div class="col-md-12">
+      <div class="card card-body mx-auto">
+        <h4 class="text-center mt-2">ADD NEW MINISTRY</h4>
+        <br>
+        <form #frm="ngForm" (ngSubmit)="createNewMinistry()">
+          <div class="align-center">
+            <label>Enter User ID</label>
+            <input type="text" placeholder="User ID" id="id" name="uid" [(ngModel)]="ministry.userId" #uid="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center" *ngIf="uid.invalid && uid.touched">User ID cannot be empty</div>
+          </div>
 
-     
-      <div class="align-center">
-      <input type="submit" value="Add Ministry" [disabled]="!frm.valid" class="btn btn-primary">
-    </div>
-    </form>
+          <div class="align-center">
+            <label>Enter Password</label>
+            <input type="password" placeholder="Password" id="pass" name="upass" [(ngModel)]="ministry.password" #upass="ngModel" class="form-control" required>
+            <div class="alert alert-danger align-center" *ngIf="upass.invalid && (upass.dirty || upass.touched)">
+              <div *ngIf="upass.errors?.required">Password is required.</div>
+              <div *ngIf="upass.errors?.minlength">Password must be at least 4 characters long.</div>
+              <div *ngIf="upass.errors?.maxlength && upass.pristine">Password cannot be more than 8 characters long.</div>
+          </div>
+          </div>
+
+
+          <label> PORTFOLIO </label>
+          <div class="align-center">
+            <input type="text" placeholder="enter portfolio" id="portfolio" name="mportfolio" [(ngModel)]="ministry.portfolio" #mportfolio="ngModel"  class="form-control" required >
+          </div>
+    
+          <div class="alert alert-danger align-center" *ngIf="mportfolio.invalid && mportfolio.touched">portfolio should not be empty</div>
+    
+         
+          <div class="align-center">
+          <input type="submit" value="Add Ministry" [disabled]="!frm.valid" class="btn btn-primary">
+        </div>
+        </form>
+      </div>
+      </div>
 </div>
+
 
 
 

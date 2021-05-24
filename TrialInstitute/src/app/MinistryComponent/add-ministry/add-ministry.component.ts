@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Ministry } from 'src/app/modules/ministry';
 import { MinistryService } from 'src/app/services/ministry.service';
 
@@ -11,15 +12,17 @@ import { MinistryService } from 'src/app/services/ministry.service';
 export class AddMinistryComponent implements OnInit {
 
   ministry:Ministry=new Ministry();
+  sub:Subscription=new Subscription();
+  userid:string = this.route.snapshot.url[1].path;
 
-  constructor(private ministryservice:MinistryService,private router:Router)  { 
+  constructor(private ministryservice:MinistryService,private router:Router,private route:ActivatedRoute)  { 
 
   }
   createNewMinistry(){
     this.ministryservice.createNewMinistry(this.ministry).subscribe(
       data=>{
         alert('ministry added');
-        this.router.navigateByUrl("ministry/login");
+        this.router.navigateByUrl(`ministry-dashboard/${this.userid}/view-ministry`);
       },
       error=>
       {

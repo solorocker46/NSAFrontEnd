@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Ministry } from 'src/app/modules/ministry';
 import { MinistryService } from 'src/app/services/ministry.service';
 
@@ -9,7 +10,9 @@ import { MinistryService } from 'src/app/services/ministry.service';
 })
 export class ViewMinistryComponent implements OnInit {
 
-  constructor(private ministryService:MinistryService) {
+  userid:string = this.route.snapshot.url[1].path;
+
+  constructor(private ministryService:MinistryService,private router:Router,private route:ActivatedRoute) {
 
   }
 
@@ -31,5 +34,9 @@ export class ViewMinistryComponent implements OnInit {
        
  
  }
+
+ dashboard(){
+  this.router.navigateByUrl(`ministry-dashboard/${this.userid}`);
+}
 
 }
